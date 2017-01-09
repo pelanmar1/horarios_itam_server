@@ -1758,12 +1758,11 @@ var x = {
         }
     ],
     mustHaveGroups:['ECO-11101-006','EST-11102-001'] // DEPARTAMENTO-CLAVE-GRUPO
-
 };
 
 
-//console.log(filterClasses(classes,avSchedule).length);
+console.log(filterClasses(classes,avSchedule).length);
 
 //console.log(getValidClassCombinations(classes).length);
 
-test();
+//test();

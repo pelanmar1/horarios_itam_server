@@ -456,304 +456,427 @@ var carreras = [
                         semester: 10
                     }
                 ]
-            }]},
+            }]
+    },
 
     {
         name: "Administración y Contaduría Pública y Estrategia Financiera",
         planes: [
-            {name:"acf_D",
+            {
+                name: "acf_D",
                 classes: [
-                    {name:"Proceso Contable",
-                        key:"CON-10001",
-                        semester:1}
+                    {
+                        name: "Proceso Contable",
+                        key: "CON-10001",
+                        semester: 1
+                    }
                     ,
-                    {name:"Estrategia de Negocios I",
-                        key:"ADM-12107",
-                        semester:1}
+                    {
+                        name: "Estrategia de Negocios I",
+                        key: "ADM-12107",
+                        semester: 1
+                    }
                     ,
-                    {name:"Introducción a las Matemáticas",
-                        key:"MAT-11001",
-                        semester:1}
+                    {
+                        name: "Introducción a las Matemáticas",
+                        key: "MAT-11001",
+                        semester: 1
+                    }
                     ,
-                    {name:"Ideas e Instituciones Políticas y Sociales I",
-                        key:"EGN-17121",
-                        semester:1}
+                    {
+                        name: "Ideas e Instituciones Políticas y Sociales I",
+                        key: "EGN-17121",
+                        semester: 1
+                    }
                     ,
-                    {name:"Problemas de la Civilización Contemporánea  I",
-                        key:"EGN-17141",
-                        semester:1}
+                    {
+                        name: "Problemas de la Civilización Contemporánea  I",
+                        key: "EGN-17141",
+                        semester: 1
+                    }
                     ,
-                    {name:"Estrategias de Comunicación Escrita",
-                        key:"LEN-10131",
-                        semester:1}
+                    {
+                        name: "Estrategias de Comunicación Escrita",
+                        key: "LEN-10131",
+                        semester: 1
+                    }
                     ,
-                    {name:"Contabilidad Intermedia I",
-                        key:"CON-10002",
-                        pre:["CON-10001"],
-                        semester:2}
+                    {
+                        name: "Contabilidad Intermedia I",
+                        key: "CON-10002",
+                        pre: ["CON-10001"],
+                        semester: 2
+                    }
                     ,
-                    {name:"Estrategia de Negocios II",
-                        key:"ADM-12108",
-                        pre:["ADM-12107"],
-                        semester:2}
+                    {
+                        name: "Estrategia de Negocios II",
+                        key: "ADM-12108",
+                        pre: ["ADM-12107"],
+                        semester: 2
+                    }
                     ,
-                    {name:"Matemáticas I",
-                        key:"MAT-11100",
-                        pre:["MAT-11001"],
-                        semester:2}
+                    {
+                        name: "Matemáticas I",
+                        key: "MAT-11100",
+                        pre: ["MAT-11001"],
+                        semester: 2
+                    }
                     ,
-                    {name:"Economía I",
-                        key:"ECO-11101",
-                        semester:2}
+                    {
+                        name: "Economía I",
+                        key: "ECO-11101",
+                        semester: 2
+                    }
                     ,
-                    {name:"Ideas e Instituciones Políticas y Sociales II",
-                        key:"EGN-17122",
-                        pre:["EGN-17121"],
-                        semester:2}
+                    {
+                        name: "Ideas e Instituciones Políticas y Sociales II",
+                        key: "EGN-17122",
+                        pre: ["EGN-17121"],
+                        semester: 2
+                    }
                     ,
-                    {name:"Problemas de la Civilización Contemporánea II",
-                        key:"EGN-17142",
-                        pre:["EGN-17141"],
-                        semester:2}
+                    {
+                        name: "Problemas de la Civilización Contemporánea II",
+                        key: "EGN-17142",
+                        pre: ["EGN-17141"],
+                        semester: 2
+                    }
                     ,
-                    {name:"Herramientas Computacionales y Algorítmos",
-                        key:"COM-16301",
-                        semester:2}
+                    {
+                        name: "Herramientas Computacionales y Algorítmos",
+                        key: "COM-16301",
+                        semester: 2
+                    }
                     ,
-                    {name:"Contabilidad Intermedia II",
-                        key:"CON-10003",
-                        pre:["CON-10002", "MAT-11100"],
-                        semester:3}
+                    {
+                        name: "Contabilidad Intermedia II",
+                        key: "CON-10003",
+                        pre: ["CON-10002", "MAT-11100"],
+                        semester: 3
+                    }
                     ,
-                    {name:"Economía II",
-                        key:"ECO-12102",
-                        pre:["ECO-11101"],
-                        semester:3}
+                    {
+                        name: "Economía II",
+                        key: "ECO-12102",
+                        pre: ["ECO-11101"],
+                        semester: 3
+                    }
                     ,
-                    {name:"Estadística I",
-                        key:"EST-10101",
-                        pre:["COM-16301", "MAT-11100"],
-                        semester:3}
+                    {
+                        name: "Estadística I",
+                        key: "EST-10101",
+                        pre: ["COM-16301", "MAT-11100"],
+                        semester: 3
+                    }
                     ,
-                    {name:"Matemáticas II",
-                        key:"MAT-11101",
-                        pre:["MAT-11100"],
-                        semester:3}
+                    {
+                        name: "Matemáticas II",
+                        key: "MAT-11101",
+                        pre: ["MAT-11100"],
+                        semester: 3
+                    }
                     ,
-                    {name:"Introducción al Derecho Corporativo",
-                        key:"DER-10016",
-                        semester:3}
+                    {
+                        name: "Introducción al Derecho Corporativo",
+                        key: "DER-10016",
+                        semester: 3
+                    }
                     ,
-                    {name:"Ideas e Instituciones Políticas y Sociales III        (A)",
-                        key:"EGN-17123",
-                        pre:["EGN-17122,  EGN-17141", "LEN-10131"],
-                        semester:3}
+                    {
+                        name: "Ideas e Instituciones Políticas y Sociales III        (A)",
+                        key: "EGN-17123",
+                        pre: ["EGN-17122,  EGN-17141", "LEN-10131"],
+                        semester: 3
+                    }
                     ,
-                    {name:"Combinación de Negocios",
-                        key:"CON-10004",
-                        pre:["CON-10003", "DER-10016"],
-                        semester:4}
+                    {
+                        name: "Combinación de Negocios",
+                        key: "CON-10004",
+                        pre: ["CON-10003", "DER-10016"],
+                        semester: 4
+                    }
                     ,
-                    {name:"Administración Internacional",
-                        key:"ADM-11013",
-                        pre:["ADM-12108"],
-                        semester:4}
+                    {
+                        name: "Administración Internacional",
+                        key: "ADM-11013",
+                        pre: ["ADM-12108"],
+                        semester: 4
+                    }
                     ,
-                    {name:"Economía III",
-                        key:"ECO-11103",
-                        pre:["ECO-12102", "MAT-11100"],
-                        semester:4}
+                    {
+                        name: "Economía III",
+                        key: "ECO-11103",
+                        pre: ["ECO-12102", "MAT-11100"],
+                        semester: 4
+                    }
                     ,
-                    {name:"Estadística II",
-                        key:"EST-10102",
-                        pre:["EST-10101"],
-                        semester:4}
+                    {
+                        name: "Estadística II",
+                        key: "EST-10102",
+                        pre: ["EST-10101"],
+                        semester: 4
+                    }
                     ,
-                    {name:"Matemáticas III",
-                        key:"MAT-11310",
-                        pre:["MAT-11100"],
-                        semester:4}
+                    {
+                        name: "Matemáticas III",
+                        key: "MAT-11310",
+                        pre: ["MAT-11100"],
+                        semester: 4
+                    }
                     ,
-                    {name:"Derecho Corporativo",
-                        key:"DER-10026",
-                        pre:["DER-10016"],
-                        semester:4}
+                    {
+                        name: "Derecho Corporativo",
+                        key: "DER-10026",
+                        pre: ["DER-10016"],
+                        semester: 4
+                    }
                     ,
-                    {name:"Contabilidad Internacional",
-                        key:"CON-10106",
-                        pre:["CON-10004"],
-                        semester:5}
+                    {
+                        name: "Contabilidad Internacional",
+                        key: "CON-10106",
+                        pre: ["CON-10004"],
+                        semester: 5
+                    }
                     ,
-                    {name:"Pronósticos de Negocios",
-                        key:"ADM-11101",
-                        pre:["EST-10102", "MAT-11310"],
-                        semester:5}
+                    {
+                        name: "Pronósticos de Negocios",
+                        key: "ADM-11101",
+                        pre: ["EST-10102", "MAT-11310"],
+                        semester: 5
+                    }
                     ,
-                    {name:"Comportamiento Humano I",
-                        key:"ADM-14401",
-                        pre:["ADM-12108"],
-                        semester:5}
+                    {
+                        name: "Comportamiento Humano I",
+                        key: "ADM-14401",
+                        pre: ["ADM-12108"],
+                        semester: 5
+                    }
                     ,
-                    {name:"Mercadotecnia I",
-                        key:"ADM-16601",
-                        pre:["EST-10101"],
-                        semester:5}
+                    {
+                        name: "Mercadotecnia I",
+                        key: "ADM-16601",
+                        pre: ["EST-10101"],
+                        semester: 5
+                    }
                     ,
-                    {name:"Economía IV",
-                        key:"ECO-11104",
-                        pre:["ECO-11103"],
-                        semester:5}
+                    {
+                        name: "Economía IV",
+                        key: "ECO-11104",
+                        pre: ["ECO-11103"],
+                        semester: 5
+                    }
                     ,
-                    {name:"Historia Sociopolítica de México",
-                        key:"EGN-17161",
-                        pre:["EGN-17123"],
-                        semester:5}
+                    {
+                        name: "Historia Sociopolítica de México",
+                        key: "EGN-17161",
+                        pre: ["EGN-17123"],
+                        semester: 5
+                    }
                     ,
-                    {name:"Desarrollo de Habilidades Gerenciales",
-                        key:"ADM-14413",
-                        pre:["ADM-14401"],
-                        semester:6}
+                    {
+                        name: "Desarrollo de Habilidades Gerenciales",
+                        key: "ADM-14413",
+                        pre: ["ADM-14401"],
+                        semester: 6
+                    }
                     ,
-                    {name:"Innovación y Diseño de Modelos de Negocio",
-                        key:"ADM-11002",
-                        pre:["ADM-12108", "CON-10003"],
-                        semester:6}
+                    {
+                        name: "Innovación y Diseño de Modelos de Negocio",
+                        key: "ADM-11002",
+                        pre: ["ADM-12108", "CON-10003"],
+                        semester: 6
+                    }
                     ,
-                    {name:"Finanzas I",
-                        key:"ADM-15501",
-                        pre:["EST-10102", "ECO-11103"],
-                        semester:6}
+                    {
+                        name: "Finanzas I",
+                        key: "ADM-15501",
+                        pre: ["EST-10102", "ECO-11103"],
+                        semester: 6
+                    }
                     ,
-                    {name:"Mercadotecnia II",
-                        key:"ADM-16602",
-                        pre:["ADM-16601", "ADM-11101"],
-                        semester:6}
+                    {
+                        name: "Mercadotecnia II",
+                        key: "ADM-16602",
+                        pre: ["ADM-16601", "ADM-11101"],
+                        semester: 6
+                    }
                     ,
-                    {name:"Comportamiento Humano II",
-                        key:"ADM-14402",
-                        pre:["ADM-14401"],
-                        semester:6}
+                    {
+                        name: "Comportamiento Humano II",
+                        key: "ADM-14402",
+                        pre: ["ADM-14401"],
+                        semester: 6
+                    }
                     ,
-                    {name:"Problemas de la Realidad Mexicana Contemporánea",
-                        key:"EGN-17162",
-                        pre:["EGN-17161", "EGN-17142"],
-                        semester:6}
+                    {
+                        name: "Problemas de la Realidad Mexicana Contemporánea",
+                        key: "EGN-17162",
+                        pre: ["EGN-17161", "EGN-17142"],
+                        semester: 6
+                    }
                     ,
-                    {name:"Mercadotecnia III",
-                        key:"ADM-16603",
-                        pre:["ADM-16602"],
-                        semester:7}
+                    {
+                        name: "Mercadotecnia III",
+                        key: "ADM-16603",
+                        pre: ["ADM-16602"],
+                        semester: 7
+                    }
                     ,
-                    {name:"Finanzas II",
-                        key:"ADM-15502",
-                        pre:["ADM-15501", "ADM-11101"],
-                        semester:7}
+                    {
+                        name: "Finanzas II",
+                        key: "ADM-15502",
+                        pre: ["ADM-15501", "ADM-11101"],
+                        semester: 7
+                    }
                     ,
-                    {name:"Modelado Computacional para Negocios",
-                        key:"COM-16303",
-                        pre:["COM-16301", "ADM-15501"],
-                        semester:7}
+                    {
+                        name: "Modelado Computacional para Negocios",
+                        key: "COM-16303",
+                        pre: ["COM-16301", "ADM-15501"],
+                        semester: 7
+                    }
                     ,
-                    {name:"Régimen Laboral Mexicano",
-                        key:"DER-10008",
-                        pre:["DER-10026"],
-                        semester:7}
+                    {
+                        name: "Régimen Laboral Mexicano",
+                        key: "DER-10008",
+                        pre: ["DER-10026"],
+                        semester: 7
+                    }
                     ,
-                    {name:"Sistemas Empresariales",
-                        key:"SDI-25916",
-                        pre:["COM-16301", "CON-10106"],
-                        semester:7}
+                    {
+                        name: "Sistemas Empresariales",
+                        key: "SDI-25916",
+                        pre: ["COM-16301", "CON-10106"],
+                        semester: 7
+                    }
                     ,
-                    {name:"Derecho Fiscal I",
-                        key:"DER-17703",
-                        pre:["DER-10026"],
-                        semester:7}
+                    {
+                        name: "Derecho Fiscal I",
+                        key: "DER-17703",
+                        pre: ["DER-10026"],
+                        semester: 7
+                    }
                     ,
-                    {name:"Impuestos Corporativos I",
-                        key:"CON-15001",
-                        pre:["DER-17703"],
-                        semester:8}
+                    {
+                        name: "Impuestos Corporativos I",
+                        key: "CON-15001",
+                        pre: ["DER-17703"],
+                        semester: 8
+                    }
                     ,
-                    {name:"Contabilidad de Costos                        (A)",
-                        key:"CON-12001",
-                        pre:["DER-10008 Y CON-10003"],
-                        semester:8}
+                    {
+                        name: "Contabilidad de Costos                        (A)",
+                        key: "CON-12001",
+                        pre: ["DER-10008 Y CON-10003"],
+                        semester: 8
+                    }
                     ,
-                    {name:"Contabilización y Valuación de Instrumentos Financieros",
-                        key:"CON-10011",
-                        pre:["CON-10106", "ADM-15501"],
-                        semester:8}
+                    {
+                        name: "Contabilización y Valuación de Instrumentos Financieros",
+                        key: "CON-10011",
+                        pre: ["CON-10106", "ADM-15501"],
+                        semester: 8
+                    }
                     ,
-                    {name:"Finanzas III",
-                        key:"ADM-15503",
-                        pre:["ADM-15502 ADM-14401, ADM-11013"],
-                        semester:8}
+                    {
+                        name: "Finanzas III",
+                        key: "ADM-15503",
+                        pre: ["ADM-15502 ADM-14401, ADM-11013"],
+                        semester: 8
+                    }
                     ,
-                    {name:"Desarrollo Empresarial                       (A)",
-                        key:"ADM-13101",
-                        pre:["ADM-16601, ADM-11002", "ADM-15501"],
-                        semester:8}
+                    {
+                        name: "Desarrollo Empresarial                       (A)",
+                        key: "ADM-13101",
+                        pre: ["ADM-16601, ADM-11002", "ADM-15501"],
+                        semester: 8
+                    }
                     ,
-                    {name:"Administración de la Cadena de Suministro",
-                        key:"IIO-14278",
-                        pre:["ADM-11101"],
-                        semester:8}
+                    {
+                        name: "Administración de la Cadena de Suministro",
+                        key: "IIO-14278",
+                        pre: ["ADM-11101"],
+                        semester: 8
+                    }
                     ,
-                    {name:"Contraloría",
-                        key:"CON-11013",
-                        pre:["SDI-25916", "CON-10004"],
-                        semester:9}
+                    {
+                        name: "Contraloría",
+                        key: "CON-11013",
+                        pre: ["SDI-25916", "CON-10004"],
+                        semester: 9
+                    }
                     ,
-                    {name:"Economía de la Empresa",
-                        key:"ECO-14501",
-                        pre:["ECO-11104,  ADM-12108", "ADM-11101"],
-                        semester:9}
+                    {
+                        name: "Economía de la Empresa",
+                        key: "ECO-14501",
+                        pre: ["ECO-11104,  ADM-12108", "ADM-11101"],
+                        semester: 9
+                    }
                     ,
-                    {name:"Estrategia y Control de Riesgos Financieros",
-                        key:"CON-18002",
-                        pre:["ADM-15502"],
-                        semester:9}
+                    {
+                        name: "Estrategia y Control de Riesgos Financieros",
+                        key: "CON-18002",
+                        pre: ["ADM-15502"],
+                        semester: 9
+                    }
                     ,
-                    {name:"Administración y Evaluación de Proyectos",
-                        key:"IIO-14180",
-                        pre:["ADM-15501", "ADM-14401"],
-                        semester:9}
+                    {
+                        name: "Administración y Evaluación de Proyectos",
+                        key: "IIO-14180",
+                        pre: ["ADM-15501", "ADM-14401"],
+                        semester: 9
+                    }
                     ,
-                    {name:"Costos para la Toma de Decisiones",
-                        key:"CON-12002",
-                        pre:["CON-12001", "ADM-11101"],
-                        semester:9}
+                    {
+                        name: "Costos para la Toma de Decisiones",
+                        key: "CON-12002",
+                        pre: ["CON-12001", "ADM-11101"],
+                        semester: 9
+                    }
                     ,
-                    {name:"Impuestos Corporativos II",
-                        key:"CON-15002",
-                        pre:["CON-15001"],
-                        semester:9}
+                    {
+                        name: "Impuestos Corporativos II",
+                        key: "CON-15002",
+                        pre: ["CON-15001"],
+                        semester: 9
+                    }
                     ,
-                    {name:"Auditoría de Estados Financieros",
-                        key:"CON-11001",
-                        pre:["CON-11013", "SDI-25916"],
-                        semester:10}
+                    {
+                        name: "Auditoría de Estados Financieros",
+                        key: "CON-11001",
+                        pre: ["CON-11013", "SDI-25916"],
+                        semester: 10
+                    }
                     ,
-                    {name:"Impuestos para Personas Físicas",
-                        key:"CON-15003",
-                        pre:["CON-15002"],
-                        semester:10}
+                    {
+                        name: "Impuestos para Personas Físicas",
+                        key: "CON-15003",
+                        pre: ["CON-15002"],
+                        semester: 10
+                    }
                     ,
-                    {name:"Análisis Financiero de la Empresa",
-                        key:"CON-10005",
-                        pre:["CON-10011", "ADM-15501"],
-                        semester:10}
+                    {
+                        name: "Análisis Financiero de la Empresa",
+                        key: "CON-10005",
+                        pre: ["CON-10011", "ADM-15501"],
+                        semester: 10
+                    }
                     ,
-                    {name:"Administración Estratégica de Costos",
-                        key:"CON-12003",
-                        pre:["CON-12002"],
-                        semester:10}
+                    {
+                        name: "Administración Estratégica de Costos",
+                        key: "CON-12003",
+                        pre: ["CON-12002"],
+                        semester: 10
+                    }
                     ,
-                    {name:"Seminario de Dirección",
-                        key:"ADM-11018",
-                        pre:["ADM-13101"],
-                        semester:10}
-                ]}
+                    {
+                        name: "Seminario de Dirección",
+                        key: "ADM-11018",
+                        pre: ["ADM-13101"],
+                        semester: 10
+                    }
+                ]
+            }
         ]
     },
 
@@ -9156,214 +9279,303 @@ var carreras = [
     {
         name: "Relaciones Internacionales",
         planes: [
-            {name:"ri_E",
+            {
+                name: "ri_E",
                 classes: [
-                    {name:"Economía I",
-                        key:"ECO-11101",
-                        semester:1}
+                    {
+                        name: "Economía I",
+                        key: "ECO-11101",
+                        semester: 1
+                    }
                     ,
-                    {name:"Ideas e Instituc.Polític.y Soc. I",
-                        key:"EGN-17121",
-                        semester:1}
+                    {
+                        name: "Ideas e Instituc.Polític.y Soc. I",
+                        key: "EGN-17121",
+                        semester: 1
+                    }
                     ,
-                    {name:"Probs.de la Civ. Contemp. I",
-                        key:"EGN-17141",
-                        semester:1}
+                    {
+                        name: "Probs.de la Civ. Contemp. I",
+                        key: "EGN-17141",
+                        semester: 1
+                    }
                     ,
-                    {name:"Introducción a las Matemáticas",
-                        key:"MAT-11001",
-                        semester:1}
+                    {
+                        name: "Introducción a las Matemáticas",
+                        key: "MAT-11001",
+                        semester: 1
+                    }
                     ,
-                    {name:"Introd.a las Rel. Internacionales",
-                        key:"EIN-11101",
-                        semester:1}
+                    {
+                        name: "Introd.a las Rel. Internacionales",
+                        key: "EIN-11101",
+                        semester: 1
+                    }
                     ,
-                    {name:"Estrategias de Comunicación Escrita",
-                        key:"LEN-10131",
-                        semester:1}
+                    {
+                        name: "Estrategias de Comunicación Escrita",
+                        key: "LEN-10131",
+                        semester: 1
+                    }
                     ,
-                    {name:"Historia de las Rel. Intern. I",
-                        key:"EIN-12201",
-                        semester:2}
+                    {
+                        name: "Historia de las Rel. Intern. I",
+                        key: "EIN-12201",
+                        semester: 2
+                    }
                     ,
-                    {name:"Economía II",
-                        key:"ECO-12102",
-                        pre:["ECO-11101"],
-                        semester:2}
+                    {
+                        name: "Economía II",
+                        key: "ECO-12102",
+                        pre: ["ECO-11101"],
+                        semester: 2
+                    }
                     ,
-                    {name:"Ideas e Instituc.Polític.y Soc. II",
-                        key:"EGN-17122",
-                        pre:["EGN-17121"],
-                        semester:2}
+                    {
+                        name: "Ideas e Instituc.Polític.y Soc. II",
+                        key: "EGN-17122",
+                        pre: ["EGN-17121"],
+                        semester: 2
+                    }
                     ,
-                    {name:"Probs.de la Civ. Contemp. II",
-                        key:"EGN-17142",
-                        pre:["EGN-17141"],
-                        semester:2}
+                    {
+                        name: "Probs.de la Civ. Contemp. II",
+                        key: "EGN-17142",
+                        pre: ["EGN-17141"],
+                        semester: 2
+                    }
                     ,
-                    {name:"Matemáticas I",
-                        key:"MAT-11100",
-                        pre:["MAT-11001"],
-                        semester:2}
+                    {
+                        name: "Matemáticas I",
+                        key: "MAT-11100",
+                        pre: ["MAT-11001"],
+                        semester: 2
+                    }
                     ,
-                    {name:"Computación I",
-                        key:"COM-16401",
-                        semester:2}
+                    {
+                        name: "Computación I",
+                        key: "COM-16401",
+                        semester: 2
+                    }
                     ,
-                    {name:"Contabilidad I",
-                        key:"CON-10100",
-                        semester:2}
+                    {
+                        name: "Contabilidad I",
+                        key: "CON-10100",
+                        semester: 2
+                    }
                     ,
-                    {name:"Historia de las Rel. Intern. II",
-                        key:"EIN-13202",
-                        pre:["EIN-12201"],
-                        semester:3}
+                    {
+                        name: "Historia de las Rel. Intern. II",
+                        key: "EIN-13202",
+                        pre: ["EIN-12201"],
+                        semester: 3
+                    }
                     ,
-                    {name:"Administración Internacional",
-                        key:"ADM-11013",
-                        pre:["CON-10100"],
-                        semester:3}
+                    {
+                        name: "Administración Internacional",
+                        key: "ADM-11013",
+                        pre: ["CON-10100"],
+                        semester: 3
+                    }
                     ,
-                    {name:"Economía III",
-                        key:"ECO-11103",
-                        pre:["ECO-12102", "MAT-11100"],
-                        semester:3}
+                    {
+                        name: "Economía III",
+                        key: "ECO-11103",
+                        pre: ["ECO-12102", "MAT-11100"],
+                        semester: 3
+                    }
                     ,
-                    {name:"Matemáticas II",
-                        key:"MAT-11101",
-                        pre:["MAT-11100"],
-                        semester:3}
+                    {
+                        name: "Matemáticas II",
+                        key: "MAT-11101",
+                        pre: ["MAT-11100"],
+                        semester: 3
+                    }
                     ,
-                    {name:"Métodos de Investigación en Rel. Intern,",
-                        key:"EIN-13104",
-                        pre:["EIN-11101"],
-                        semester:3}
+                    {
+                        name: "Métodos de Investigación en Rel. Intern,",
+                        key: "EIN-13104",
+                        pre: ["EIN-11101"],
+                        semester: 3
+                    }
                     ,
-                    {name:"Ideas e Instituc.Polític.y Soc.III",
-                        key:"EGN-17123",
-                        pre:["EGN-17122, EGN-17141", "LEN-10131"],
-                        semester:3}
+                    {
+                        name: "Ideas e Instituc.Polític.y Soc.III",
+                        key: "EGN-17123",
+                        pre: ["EGN-17122, EGN-17141", "LEN-10131"],
+                        semester: 3
+                    }
                     ,
-                    {name:"Economía IV",
-                        key:"ECO-11104",
-                        pre:["MAT-11101", "ECO-11103"],
-                        semester:4}
+                    {
+                        name: "Economía IV",
+                        key: "ECO-11104",
+                        pre: ["MAT-11101", "ECO-11103"],
+                        semester: 4
+                    }
                     ,
-                    {name:"Historia de E.U.A.",
-                        key:"EIN-14302",
-                        semester:4}
+                    {
+                        name: "Historia de E.U.A.",
+                        key: "EIN-14302",
+                        semester: 4
+                    }
                     ,
-                    {name:"Teoría de Rel. Internacionales",
-                        key:"EIN-14102",
-                        pre:["EIN-13104"],
-                        semester:4}
+                    {
+                        name: "Teoría de Rel. Internacionales",
+                        key: "EIN-14102",
+                        pre: ["EIN-13104"],
+                        semester: 4
+                    }
                     ,
-                    {name:"Historia Sociopolítica de México",
-                        key:"EGN-17161",
-                        pre:["EGN-17123"],
-                        semester:4}
+                    {
+                        name: "Historia Sociopolítica de México",
+                        key: "EGN-17161",
+                        pre: ["EGN-17123"],
+                        semester: 4
+                    }
                     ,
-                    {name:"Fundamentos Jurídicos",
-                        key:"DER-10013",
-                        semester:4}
+                    {
+                        name: "Fundamentos Jurídicos",
+                        key: "DER-10013",
+                        semester: 4
+                    }
                     ,
-                    {name:"Estadística I",
-                        key:"EST-10101",
-                        pre:["MAT-11100", "COM-16401"],
-                        semester:4}
+                    {
+                        name: "Estadística I",
+                        key: "EST-10101",
+                        pre: ["MAT-11100", "COM-16401"],
+                        semester: 4
+                    }
                     ,
-                    {name:"Proceso Político en E.U.A.: Dimensión Internacional",
-                        key:"EIN-15302",
-                        pre:["EIN-14302"],
-                        semester:5}
+                    {
+                        name: "Proceso Político en E.U.A.: Dimensión Internacional",
+                        key: "EIN-15302",
+                        pre: ["EIN-14302"],
+                        semester: 5
+                    }
                     ,
-                    {name:"Macroeconomía Intermedia",
-                        key:"ECO-12133",
-                        pre:["ECO-11103"],
-                        semester:5}
+                    {
+                        name: "Macroeconomía Intermedia",
+                        key: "ECO-12133",
+                        pre: ["ECO-11103"],
+                        semester: 5
+                    }
                     ,
-                    {name:"Elección Pública I",
-                        key:"CSO-15021",
-                        pre:["EGN-17123"],
-                        semester:5}
+                    {
+                        name: "Elección Pública I",
+                        key: "CSO-15021",
+                        pre: ["EGN-17123"],
+                        semester: 5
+                    }
                     ,
-                    {name:"Probs.de la Real. Mex. Contemp.",
-                        key:"EGN-17162",
-                        pre:["EGN-17142", "EGN-17161"],
-                        semester:5}
+                    {
+                        name: "Probs.de la Real. Mex. Contemp.",
+                        key: "EGN-17162",
+                        pre: ["EGN-17142", "EGN-17161"],
+                        semester: 5
+                    }
                     ,
-                    {name:"Estadística II",
-                        key:"EST-10102",
-                        pre:["EST-10101"],
-                        semester:5}
+                    {
+                        name: "Estadística II",
+                        key: "EST-10102",
+                        pre: ["EST-10101"],
+                        semester: 5
+                    }
                     ,
-                    {name:"Política de Rel. Eco. Internacionales",
-                        key:"EIN-15105",
-                        pre:["EIN-14102"],
-                        semester:5}
+                    {
+                        name: "Política de Rel. Eco. Internacionales",
+                        key: "EIN-15105",
+                        pre: ["EIN-14102"],
+                        semester: 5
+                    }
                     ,
-                    {name:"América Latina",
-                        key:"EIN-16403",
-                        pre:["EIN-15105"],
-                        semester:6}
+                    {
+                        name: "América Latina",
+                        key: "EIN-16403",
+                        pre: ["EIN-15105"],
+                        semester: 6
+                    }
                     ,
-                    {name:"Derecho Internacional Público I",
-                        key:"DER-10005",
-                        pre:["DER-10013"],
-                        semester:6}
+                    {
+                        name: "Derecho Internacional Público I",
+                        key: "DER-10005",
+                        pre: ["DER-10013"],
+                        semester: 6
+                    }
                     ,
-                    {name:"Europa Contemporánea",
-                        key:"EIN-16402",
-                        semester:6}
+                    {
+                        name: "Europa Contemporánea",
+                        key: "EIN-16402",
+                        semester: 6
+                    }
                     ,
-                    {name:"Métodos Estad. p/CP. y R.I.",
-                        key:"EST-13101",
-                        pre:["EST-10102"],
-                        semester:6}
+                    {
+                        name: "Métodos Estad. p/CP. y R.I.",
+                        key: "EST-13101",
+                        pre: ["EST-10102"],
+                        semester: 6
+                    }
                     ,
-                    {name:"Política Mexicana Contemp.",
-                        key:"CSO-13041",
-                        pre:["EGN-17162"],
-                        semester:6}
+                    {
+                        name: "Política Mexicana Contemp.",
+                        key: "CSO-13041",
+                        pre: ["EGN-17162"],
+                        semester: 6
+                    }
                     ,
-                    {name:"Economía Internacional I",
-                        key:"ECO-13101",
-                        pre:["ECO-11103"],
-                        semester:6}
+                    {
+                        name: "Economía Internacional I",
+                        key: "ECO-13101",
+                        pre: ["ECO-11103"],
+                        semester: 6
+                    }
                     ,
-                    {name:"Relaciones México-EUA-Canadá",
-                        key:"EIN-17303",
-                        pre:["EIN-15302"],
-                        semester:7}
+                    {
+                        name: "Relaciones México-EUA-Canadá",
+                        key: "EIN-17303",
+                        pre: ["EIN-15302"],
+                        semester: 7
+                    }
                     ,
-                    {name:"Derecho Internacional Público II",
-                        key:"DER-10006",
-                        pre:["DER-10005"],
-                        semester:7}
+                    {
+                        name: "Derecho Internacional Público II",
+                        key: "DER-10006",
+                        pre: ["DER-10005"],
+                        semester: 7
+                    }
                     ,
-                    {name:"Japón, China y el Sudeste Asiático",
-                        key:"EIN-17403",
-                        pre:["EIN-15105"],
-                        semester:7}
+                    {
+                        name: "Japón, China y el Sudeste Asiático",
+                        key: "EIN-17403",
+                        pre: ["EIN-15105"],
+                        semester: 7
+                    }
                     ,
-                    {name:"Medio Oriente",
-                        key:"EIN-19414",
-                        semester:7}
+                    {
+                        name: "Medio Oriente",
+                        key: "EIN-19414",
+                        semester: 7
+                    }
                     ,
-                    {name:"Política Comparada I",
-                        key:"CSO-14021",
-                        pre:["CSO-13041"],
-                        semester:7}
+                    {
+                        name: "Política Comparada I",
+                        key: "CSO-14021",
+                        pre: ["CSO-13041"],
+                        semester: 7
+                    }
                     ,
-                    {name:"Formul. de la Polít. Ext.de México",
-                        key:"EIN-17304",
-                        pre:["CSO-13041"],
-                        semester:7}
+                    {
+                        name: "Formul. de la Polít. Ext.de México",
+                        key: "EIN-17304",
+                        pre: ["CSO-13041"],
+                        semester: 7
+                    }
                     ,
-                    {name:"Seminario de Titulación",
-                        key:"EIN-18602",
-                        pre:["EST-13101", "DER-10006"],
-                        semester:8}
+                    {
+                        name: "Seminario de Titulación",
+                        key: "EIN-18602",
+                        pre: ["EST-13101", "DER-10006"],
+                        semester: 8
+                    }
                 ]
             }]
     },
@@ -9371,526 +9583,747 @@ var carreras = [
     {
         name: "Relaciones Internacionales y Ciencia Política",
         planes: [
-            {name:"rpl_C",
+            {
+                name: "rpl_C",
                 classes: [
-                    {name:"Introducción a la Ciencia Política",
-                        key:"CSO-10001",
-                        semester:1}
+                    {
+                        name: "Introducción a la Ciencia Política",
+                        key: "CSO-10001",
+                        semester: 1
+                    }
                     ,
-                    {name:"Introd. a las Rel. Internacionales",
-                        key:"EIN-11101",
-                        semester:1}
+                    {
+                        name: "Introd. a las Rel. Internacionales",
+                        key: "EIN-11101",
+                        semester: 1
+                    }
                     ,
-                    {name:"Introducción a las Matemáticas",
-                        key:"MAT-11001",
-                        semester:1}
+                    {
+                        name: "Introducción a las Matemáticas",
+                        key: "MAT-11001",
+                        semester: 1
+                    }
                     ,
-                    {name:"Economía I",
-                        key:"ECO-11101",
-                        semester:1}
+                    {
+                        name: "Economía I",
+                        key: "ECO-11101",
+                        semester: 1
+                    }
                     ,
-                    {name:"Ideas e Instituc. Polític. y Soc. I",
-                        key:"EGN-17121",
-                        semester:1}
+                    {
+                        name: "Ideas e Instituc. Polític. y Soc. I",
+                        key: "EGN-17121",
+                        semester: 1
+                    }
                     ,
-                    {name:"Probs. de la Civ. Contemp. I",
-                        key:"EGN-17141",
-                        semester:1}
+                    {
+                        name: "Probs. de la Civ. Contemp. I",
+                        key: "EGN-17141",
+                        semester: 1
+                    }
                     ,
-                    {name:"Estrategias de Comunicación Escrita",
-                        key:"LEN-10131",
-                        semester:1}
+                    {
+                        name: "Estrategias de Comunicación Escrita",
+                        key: "LEN-10131",
+                        semester: 1
+                    }
                     ,
-                    {name:"Teoría de Relaciones Internacionales",
-                        key:"EIN-14102",
-                        pre:["EIN-11101"],
-                        semester:2}
+                    {
+                        name: "Teoría de Relaciones Internacionales",
+                        key: "EIN-14102",
+                        pre: ["EIN-11101"],
+                        semester: 2
+                    }
                     ,
-                    {name:"Historia Política Contemporánea",
-                        key:"CSO-12013",
-                        semester:2}
+                    {
+                        name: "Historia Política Contemporánea",
+                        key: "CSO-12013",
+                        semester: 2
+                    }
                     ,
-                    {name:"Seminario de Análisis Político",
-                        key:"CSO-10003",
-                        semester:2}
+                    {
+                        name: "Seminario de Análisis Político",
+                        key: "CSO-10003",
+                        semester: 2
+                    }
                     ,
-                    {name:"Economía II",
-                        key:"ECO-12102",
-                        pre:["ECO-11101"],
-                        semester:2}
+                    {
+                        name: "Economía II",
+                        key: "ECO-12102",
+                        pre: ["ECO-11101"],
+                        semester: 2
+                    }
                     ,
-                    {name:"Matemáticas I",
-                        key:"MAT-11100",
-                        pre:["MAT-11001"],
-                        semester:2}
+                    {
+                        name: "Matemáticas I",
+                        key: "MAT-11100",
+                        pre: ["MAT-11001"],
+                        semester: 2
+                    }
                     ,
-                    {name:"Ideas e Instituc. Polític. y Soc. II",
-                        key:"EGN-17122",
-                        pre:["EGN-17121"],
-                        semester:2}
+                    {
+                        name: "Ideas e Instituc. Polític. y Soc. II",
+                        key: "EGN-17122",
+                        pre: ["EGN-17121"],
+                        semester: 2
+                    }
                     ,
-                    {name:"Probs. de la Civ. Contemp. II",
-                        key:"EGN-17142",
-                        pre:["EGN-17141"],
-                        semester:2}
+                    {
+                        name: "Probs. de la Civ. Contemp. II",
+                        key: "EGN-17142",
+                        pre: ["EGN-17141"],
+                        semester: 2
+                    }
                     ,
-                    {name:"Historia de las Rel. Intern. I",
-                        key:"EIN-12201",
-                        semester:3}
+                    {
+                        name: "Historia de las Rel. Intern. I",
+                        key: "EIN-12201",
+                        semester: 3
+                    }
                     ,
-                    {name:"Historia de México I",
-                        key:"CSO-12041",
-                        semester:3}
+                    {
+                        name: "Historia de México I",
+                        key: "CSO-12041",
+                        semester: 3
+                    }
                     ,
-                    {name:"Teoría Política Clásica I",
-                        key:"CSO-11011",
-                        semester:3}
+                    {
+                        name: "Teoría Política Clásica I",
+                        key: "CSO-11011",
+                        semester: 3
+                    }
                     ,
-                    {name:"Economía III",
-                        key:"ECO-11103",
-                        pre:["ECO-12102, MAT-11100"],
-                        semester:3}
+                    {
+                        name: "Economía III",
+                        key: "ECO-11103",
+                        pre: ["ECO-12102, MAT-11100"],
+                        semester: 3
+                    }
                     ,
-                    {name:"Matemáticas II",
-                        key:"MAT-11101",
-                        pre:["MAT-11100"],
-                        semester:3}
+                    {
+                        name: "Matemáticas II",
+                        key: "MAT-11101",
+                        pre: ["MAT-11100"],
+                        semester: 3
+                    }
                     ,
-                    {name:"Ideas e Instituc. Polític. y Soc. III",
-                        key:"y EGN-17123",
-                        pre:["EGN-17122, EGN-17141, LEN-10131"],
-                        semester:3}
+                    {
+                        name: "Ideas e Instituc. Polític. y Soc. III",
+                        key: "y EGN-17123",
+                        pre: ["EGN-17122, EGN-17141, LEN-10131"],
+                        semester: 3
+                    }
                     ,
-                    {name:"Historia de las Rel. Intern. II",
-                        key:"EIN-13202",
-                        pre:["EIN-12201"],
-                        semester:4}
+                    {
+                        name: "Historia de las Rel. Intern. II",
+                        key: "EIN-13202",
+                        pre: ["EIN-12201"],
+                        semester: 4
+                    }
                     ,
-                    {name:"Elección Pública I",
-                        key:"CSO-15021",
-                        pre:["CSO-10001, EGN-17123"],
-                        semester:4}
+                    {
+                        name: "Elección Pública I",
+                        key: "CSO-15021",
+                        pre: ["CSO-10001, EGN-17123"],
+                        semester: 4
+                    }
                     ,
-                    {name:"Historia de México II",
-                        key:"CSO-12042",
-                        pre:["CSO-12041"],
-                        semester:4}
+                    {
+                        name: "Historia de México II",
+                        key: "CSO-12042",
+                        pre: ["CSO-12041"],
+                        semester: 4
+                    }
                     ,
-                    {name:"Computación I",
-                        key:"COM-16401",
-                        semester:4}
+                    {
+                        name: "Computación I",
+                        key: "COM-16401",
+                        semester: 4
+                    }
                     ,
-                    {name:"Economía IV",
-                        key:"ECO-11104",
-                        pre:["ECO-11103, MAT-11101"],
-                        semester:4}
+                    {
+                        name: "Economía IV",
+                        key: "ECO-11104",
+                        pre: ["ECO-11103, MAT-11101"],
+                        semester: 4
+                    }
                     ,
-                    {name:"Historia Socio-Política de México",
-                        key:"EGN-17161",
-                        pre:["EGN-17123"],
-                        semester:4}
+                    {
+                        name: "Historia Socio-Política de México",
+                        key: "EGN-17161",
+                        pre: ["EGN-17123"],
+                        semester: 4
+                    }
                     ,
-                    {name:"Historia de Estados Unidos",
-                        key:"EIN-14302",
-                        semester:5}
+                    {
+                        name: "Historia de Estados Unidos",
+                        key: "EIN-14302",
+                        semester: 5
+                    }
                     ,
-                    {name:"Elección Pública II",
-                        key:"CSO-15022",
-                        pre:["CSO-15021"],
-                        semester:5}
+                    {
+                        name: "Elección Pública II",
+                        key: "CSO-15022",
+                        pre: ["CSO-15021"],
+                        semester: 5
+                    }
                     ,
-                    {name:"Teoría Política Clásica II",
-                        key:"CSO-11012",
-                        pre:["CSO-11011"],
-                        semester:5}
+                    {
+                        name: "Teoría Política Clásica II",
+                        key: "CSO-11012",
+                        pre: ["CSO-11011"],
+                        semester: 5
+                    }
                     ,
-                    {name:"Macroeconomía Intermedia",
-                        key:"ECO-12133",
-                        pre:["ECO-11103", "MAT-11101"],
-                        semester:5}
+                    {
+                        name: "Macroeconomía Intermedia",
+                        key: "ECO-12133",
+                        pre: ["ECO-11103", "MAT-11101"],
+                        semester: 5
+                    }
                     ,
-                    {name:"Estadística I",
-                        key:"EST-10101",
-                        pre:["MAT-11100, COM-16401"],
-                        semester:5}
+                    {
+                        name: "Estadística I",
+                        key: "EST-10101",
+                        pre: ["MAT-11100, COM-16401"],
+                        semester: 5
+                    }
                     ,
-                    {name:"Probs. de la Real. Mex. Contemp.",
-                        key:"EGN-17162",
-                        pre:["EGN-17142, EGN-17161, CSO-12042"],
-                        semester:5}
+                    {
+                        name: "Probs. de la Real. Mex. Contemp.",
+                        key: "EGN-17162",
+                        pre: ["EGN-17142, EGN-17161, CSO-12042"],
+                        semester: 5
+                    }
                     ,
-                    {name:"Proceso Político de E.U.A.",
-                        key:"EIN-15302",
-                        pre:["EIN-14302"],
-                        semester:6}
+                    {
+                        name: "Proceso Político de E.U.A.",
+                        key: "EIN-15302",
+                        pre: ["EIN-14302"],
+                        semester: 6
+                    }
                     ,
-                    {name:"Política de las Relaciones Eco. Intl.",
-                        key:"EIN-15105",
-                        pre:["EIN-14102"],
-                        semester:6}
+                    {
+                        name: "Política de las Relaciones Eco. Intl.",
+                        key: "EIN-15105",
+                        pre: ["EIN-14102"],
+                        semester: 6
+                    }
                     ,
-                    {name:"Historia de México III",
-                        key:"CSO-12049",
-                        pre:["CSO-12042"],
-                        semester:6}
+                    {
+                        name: "Historia de México III",
+                        key: "CSO-12049",
+                        pre: ["CSO-12042"],
+                        semester: 6
+                    }
                     ,
-                    {name:"Política Mexicana Contemporánea*",
-                        key:"CSO-13041",
-                        pre:["EGN-17162"],
-                        semester:6}
+                    {
+                        name: "Política Mexicana Contemporánea*",
+                        key: "CSO-13041",
+                        pre: ["EGN-17162"],
+                        semester: 6
+                    }
                     ,
-                    {name:"Matemáticas III",
-                        key:"MAT-11310",
-                        pre:["MAT-11100"],
-                        semester:6}
+                    {
+                        name: "Matemáticas III",
+                        key: "MAT-11310",
+                        pre: ["MAT-11100"],
+                        semester: 6
+                    }
                     ,
-                    {name:"Estadística II",
-                        key:"EST-10102",
-                        pre:["EST-10101"],
-                        semester:6}
+                    {
+                        name: "Estadística II",
+                        key: "EST-10102",
+                        pre: ["EST-10101"],
+                        semester: 6
+                    }
                     ,
-                    {name:"Relaciones México-E.U.A.-Canada",
-                        key:"EIN-17303",
-                        pre:["EIN-15302"],
-                        semester:7}
+                    {
+                        name: "Relaciones México-E.U.A.-Canada",
+                        key: "EIN-17303",
+                        pre: ["EIN-15302"],
+                        semester: 7
+                    }
                     ,
-                    {name:"Economía Internacional I",
-                        key:"ECO-13101",
-                        pre:["ECO-11103"],
-                        semester:7}
+                    {
+                        name: "Economía Internacional I",
+                        key: "ECO-13101",
+                        pre: ["ECO-11103"],
+                        semester: 7
+                    }
                     ,
-                    {name:"Política Comparada I",
-                        key:"CSO-14021",
-                        pre:["CSO-10001, CSO-13041"],
-                        semester:7}
+                    {
+                        name: "Política Comparada I",
+                        key: "CSO-14021",
+                        pre: ["CSO-10001, CSO-13041"],
+                        semester: 7
+                    }
                     ,
-                    {name:"Teoría Política Contemporánea",
-                        key:"CSO-11021",
-                        pre:["CSO-11012"],
-                        semester:7}
+                    {
+                        name: "Teoría Política Contemporánea",
+                        key: "CSO-11021",
+                        pre: ["CSO-11012"],
+                        semester: 7
+                    }
                     ,
-                    {name:"Elección Pública III",
-                        key:"CSO-15024",
-                        pre:["CSO-15022"],
-                        semester:7}
+                    {
+                        name: "Elección Pública III",
+                        key: "CSO-15024",
+                        pre: ["CSO-15022"],
+                        semester: 7
+                    }
                     ,
-                    {name:"Métodos de Investigación Aplicada",
-                        key:"CSO-17041",
-                        pre:["EST-10102"],
-                        semester:7}
+                    {
+                        name: "Métodos de Investigación Aplicada",
+                        key: "CSO-17041",
+                        pre: ["EST-10102"],
+                        semester: 7
+                    }
                     ,
-                    {name:"Europa Contemporánea",
-                        key:"EIN-16402",
-                        semester:8}
+                    {
+                        name: "Europa Contemporánea",
+                        key: "EIN-16402",
+                        semester: 8
+                    }
                     ,
-                    {name:"Política Comparada II",
-                        key:"CSO-14041",
-                        pre:["CSO-14021"],
-                        semester:8}
+                    {
+                        name: "Política Comparada II",
+                        key: "CSO-14041",
+                        pre: ["CSO-14021"],
+                        semester: 8
+                    }
                     ,
-                    {name:"Métodos Estadísticos para C. Pol y RI",
-                        key:"EST-13101",
-                        pre:["MAT-11310, EST-10102"],
-                        semester:8}
+                    {
+                        name: "Métodos Estadísticos para C. Pol y RI",
+                        key: "EST-13101",
+                        pre: ["MAT-11310, EST-10102"],
+                        semester: 8
+                    }
                     ,
-                    {name:"Instituciones del Derecho Púb. Mex. I",
-                        key:"DER-10003",
-                        semester:8}
+                    {
+                        name: "Instituciones del Derecho Púb. Mex. I",
+                        key: "DER-10003",
+                        semester: 8
+                    }
                     ,
-                    {name:"Contabilidad I",
-                        key:"CON-10100",
-                        semester:8}
+                    {
+                        name: "Contabilidad I",
+                        key: "CON-10100",
+                        semester: 8
+                    }
                     ,
-                    {name:"Economía Política I",
-                        key:"CSO-15041",
-                        pre:["ECO-11103"],
-                        semester:8}
+                    {
+                        name: "Economía Política I",
+                        key: "CSO-15041",
+                        pre: ["ECO-11103"],
+                        semester: 8
+                    }
                     ,
-                    {name:"América Latina",
-                        key:"EIN-16403",
-                        pre:["EIN-15105"],
-                        semester:9}
+                    {
+                        name: "América Latina",
+                        key: "EIN-16403",
+                        pre: ["EIN-15105"],
+                        semester: 9
+                    }
                     ,
-                    {name:"Medio Oriente",
-                        key:"EIN-19414",
-                        semester:9}
+                    {
+                        name: "Medio Oriente",
+                        key: "EIN-19414",
+                        semester: 9
+                    }
                     ,
-                    {name:"Opinión Pública",
-                        key:"CSO-14051",
-                        pre:["CSO-17041"],
-                        semester:9}
+                    {
+                        name: "Opinión Pública",
+                        key: "CSO-14051",
+                        pre: ["CSO-17041"],
+                        semester: 9
+                    }
                     ,
-                    {name:"Economía Política II",
-                        key:"CSO-15043",
-                        pre:["ECO-11103"],
-                        semester:9}
+                    {
+                        name: "Economía Política II",
+                        key: "CSO-15043",
+                        pre: ["ECO-11103"],
+                        semester: 9
+                    }
                     ,
-                    {name:"Derecho Internacional Público I",
-                        key:"DER-10005",
-                        pre:["DER-10003"],
-                        semester:9}
+                    {
+                        name: "Derecho Internacional Público I",
+                        key: "DER-10005",
+                        pre: ["DER-10003"],
+                        semester: 9
+                    }
                     ,
-                    {name:"Política y Gobierno de México",
-                        key:"CSO-14045",
-                        pre:["CSO-14041"],
-                        semester:9}
+                    {
+                        name: "Política y Gobierno de México",
+                        key: "CSO-14045",
+                        pre: ["CSO-14041"],
+                        semester: 9
+                    }
                     ,
-                    {name:"Administración Internacional",
-                        key:"ADM-11013",
-                        semester:10}
+                    {
+                        name: "Administración Internacional",
+                        key: "ADM-11013",
+                        semester: 10
+                    }
                     ,
-                    {name:"Japón, China y el Sudeste de Asia",
-                        key:"EIN-17403",
-                        semester:10}
+                    {
+                        name: "Japón, China y el Sudeste de Asia",
+                        key: "EIN-17403",
+                        semester: 10
+                    }
                     ,
-                    {name:"Derecho Internacional Público II",
-                        key:"DER-10006",
-                        pre:["DER-10005"],
-                        semester:10}
+                    {
+                        name: "Derecho Internacional Público II",
+                        key: "DER-10006",
+                        pre: ["DER-10005"],
+                        semester: 10
+                    }
                     ,
-                    {name:"Metodología Política Avanzada",
-                        key:"CSO-17042",
-                        pre:["EST-13101"],
-                        semester:10}
+                    {
+                        name: "Metodología Política Avanzada",
+                        key: "CSO-17042",
+                        pre: ["EST-13101"],
+                        semester: 10
+                    }
                     ,
-                    {name:"Política Comparada III",
-                        key:"CSO-14042",
-                        pre:["CSO-14041"],
-                        semester:10}
+                    {
+                        name: "Política Comparada III",
+                        key: "CSO-14042",
+                        pre: ["CSO-14041"],
+                        semester: 10
+                    }
                     ,
-                    {name:"Formulación de Política Exterior Mexicana",
-                        key:"EIN-17304",
-                        pre:["CSO-13041"],
-                        semester:10}
+                    {
+                        name: "Formulación de Política Exterior Mexicana",
+                        key: "EIN-17304",
+                        pre: ["CSO-13041"],
+                        semester: 10
+                    }
                     ,
-                    {name:"Seminario de Titulación I",
-                        key:"CSO-19075",
-                        pre:["CSO-17041"],
-                        semester:11}
+                    {
+                        name: "Seminario de Titulación I",
+                        key: "CSO-19075",
+                        pre: ["CSO-17041"],
+                        semester: 11
+                    }
                     ,
-                    {name:"Seminario de Titulación II",
-                        key:"CSO-19076",
-                        pre:["CSO-17041"],
-                        semester:11}
-                ]}
+                    {
+                        name: "Seminario de Titulación II",
+                        key: "CSO-19076",
+                        pre: ["CSO-17041"],
+                        semester: 11
+                    }
+                ]
+            }
         ]
     },
 
     {
         name: "Ingeniería en Telecomunicaciones",
         planes: [
-            {name:"tel_F",
+            {
+                name: "tel_F",
                 classes: [
-                    {name:"Introducción a la Ingeniería",
-                        key:"SDI-14105",
-                        semester:1}
+                    {
+                        name: "Introducción a la Ingeniería",
+                        key: "SDI-14105",
+                        semester: 1
+                    }
                     ,
-                    {name:"Algoritmos y Programas",
-                        key:"COM-11101",
-                        semester:1}
+                    {
+                        name: "Algoritmos y Programas",
+                        key: "COM-11101",
+                        semester: 1
+                    }
                     ,
-                    {name:"Introd. a la Matemática Superior",
-                        key:"MAT-14001",
-                        semester:1}
+                    {
+                        name: "Introd. a la Matemática Superior",
+                        key: "MAT-14001",
+                        semester: 1
+                    }
                     ,
-                    {name:"Ideas e Instit. Polts y Soc. I",
-                        key:"EGN-17121",
-                        semester:1}
+                    {
+                        name: "Ideas e Instit. Polts y Soc. I",
+                        key: "EGN-17121",
+                        semester: 1
+                    }
                     ,
-                    {name:"Estrategias de Comunicación Escrita",
-                        key:"LEN-10131",
-                        semester:1}
+                    {
+                        name: "Estrategias de Comunicación Escrita",
+                        key: "LEN-10131",
+                        semester: 1
+                    }
                     ,
-                    {name:"Geometría Analítica",
-                        key:"MAT-14200",
-                        semester:1}
+                    {
+                        name: "Geometría Analítica",
+                        key: "MAT-14200",
+                        semester: 1
+                    }
                     ,
-                    {name:"Probl. de la Civilización Contemp. I",
-                        key:"EGN-17141",
-                        semester:2}
+                    {
+                        name: "Probl. de la Civilización Contemp. I",
+                        key: "EGN-17141",
+                        semester: 2
+                    }
                     ,
-                    {name:"Fundamentos de Química",
-                        key:"IIO-15130",
-                        semester:2}
+                    {
+                        name: "Fundamentos de Química",
+                        key: "IIO-15130",
+                        semester: 2
+                    }
                     ,
-                    {name:"Estructuras de Datos",
-                        key:"COM-11102",
-                        pre:["COM-11101"],
-                        semester:2}
+                    {
+                        name: "Estructuras de Datos",
+                        key: "COM-11102",
+                        pre: ["COM-11101"],
+                        semester: 2
+                    }
                     ,
-                    {name:"Ideas e Inst. Polts. y Sociales II",
-                        key:"EGN-17122",
-                        pre:["EGN-17121"],
-                        semester:2}
+                    {
+                        name: "Ideas e Inst. Polts. y Sociales II",
+                        key: "EGN-17122",
+                        pre: ["EGN-17121"],
+                        semester: 2
+                    }
                     ,
-                    {name:"Álgebra Lineal I",
-                        key:"MAT-14201",
-                        pre:["MAT-14200"],
-                        semester:2}
+                    {
+                        name: "Álgebra Lineal I",
+                        key: "MAT-14201",
+                        pre: ["MAT-14200"],
+                        semester: 2
+                    }
                     ,
-                    {name:"Cálculo Diferencial e Integral I",
-                        key:"MAT-14100",
-                        pre:["MAT-14001"],
-                        semester:2}
+                    {
+                        name: "Cálculo Diferencial e Integral I",
+                        key: "MAT-14100",
+                        pre: ["MAT-14001"],
+                        semester: 2
+                    }
                     ,
-                    {name:"Probl. de la Civilización Contemp. II",
-                        key:"EGN-17142",
-                        pre:["EGN-17141"],
-                        semester:3}
+                    {
+                        name: "Probl. de la Civilización Contemp. II",
+                        key: "EGN-17142",
+                        pre: ["EGN-17141"],
+                        semester: 3
+                    }
                     ,
-                    {name:"Elementos de Física",
-                        key:"SDI-11120",
-                        pre:["MAT-14100"],
-                        semester:3}
+                    {
+                        name: "Elementos de Física",
+                        key: "SDI-11120",
+                        pre: ["MAT-14100"],
+                        semester: 3
+                    }
                     ,
-                    {name:"Desarrollo de Aplicaciones Informáticas",
-                        key:"COM-16203",
-                        pre:["COM-11102"],
-                        semester:3}
+                    {
+                        name: "Desarrollo de Aplicaciones Informáticas",
+                        key: "COM-16203",
+                        pre: ["COM-11102"],
+                        semester: 3
+                    }
                     ,
-                    {name:"Ideas e Inst. Polts. y Sociales III",
-                        key:"EGN-17123",
-                        pre:["EGN-17122", "EGN-17141", "LEN-10131"],
-                        semester:3}
+                    {
+                        name: "Ideas e Inst. Polts. y Sociales III",
+                        key: "EGN-17123",
+                        pre: ["EGN-17122", "EGN-17141", "LEN-10131"],
+                        semester: 3
+                    }
                     ,
-                    {name:"Contabilidad I",
-                        key:"CON-10100",
-                        semester:3}
+                    {
+                        name: "Contabilidad I",
+                        key: "CON-10100",
+                        semester: 3
+                    }
                     ,
-                    {name:"Cálculo Diferencial e Integral II",
-                        key:"MAT-14101",
-                        pre:["MAT-14100"],
-                        semester:3}
+                    {
+                        name: "Cálculo Diferencial e Integral II",
+                        key: "MAT-14101",
+                        pre: ["MAT-14100"],
+                        semester: 3
+                    }
                     ,
-                    {name:"Estructuras de Datos Avanzadas",
-                        key:"COM-11103",
-                        pre:["COM-11102"],
-                        semester:3}
+                    {
+                        name: "Estructuras de Datos Avanzadas",
+                        key: "COM-11103",
+                        pre: ["COM-11102"],
+                        semester: 3
+                    }
                     ,
-                    {name:"Elementos de Electrónica",
-                        key:"SDI-11221",
-                        pre:["SDI-11120"],
-                        semester:4}
+                    {
+                        name: "Elementos de Electrónica",
+                        key: "SDI-11221",
+                        pre: ["SDI-11120"],
+                        semester: 4
+                    }
                     ,
-                    {name:"Historia Socio-Política de México",
-                        key:"EGN-17161",
-                        pre:["EGN-17123"],
-                        semester:4}
+                    {
+                        name: "Historia Socio-Política de México",
+                        key: "EGN-17161",
+                        pre: ["EGN-17123"],
+                        semester: 4
+                    }
                     ,
-                    {name:"Cálculo Diferencial e Integral III",
-                        key:"MAT-14102",
-                        pre:["MAT-14101", "MAT-14201"],
-                        semester:4}
+                    {
+                        name: "Cálculo Diferencial e Integral III",
+                        key: "MAT-14102",
+                        pre: ["MAT-14101", "MAT-14201"],
+                        semester: 4
+                    }
                     ,
-                    {name:"Probabilidad",
-                        key:"EST-11101",
-                        pre:["MAT-14101"],
-                        semester:4}
+                    {
+                        name: "Probabilidad",
+                        key: "EST-11101",
+                        pre: ["MAT-14101"],
+                        semester: 4
+                    }
                     ,
-                    {name:"Bases de Datos",
-                        key:"COM-12101",
-                        pre:["SDI-14105, COM-16203", "COM- 11103"],
-                        semester:4}
+                    {
+                        name: "Bases de Datos",
+                        key: "COM-12101",
+                        pre: ["SDI-14105, COM-16203", "COM- 11103"],
+                        semester: 4
+                    }
                     ,
-                    {name:"Economía I",
-                        key:"ECO-11101",
-                        semester:4}
+                    {
+                        name: "Economía I",
+                        key: "ECO-11101",
+                        semester: 4
+                    }
                     ,
-                    {name:"Circuitos Lógicos",
-                        key:"SDI-11322",
-                        pre:["SDI-11120"],
-                        semester:5}
+                    {
+                        name: "Circuitos Lógicos",
+                        key: "SDI-11322",
+                        pre: ["SDI-11120"],
+                        semester: 5
+                    }
                     ,
-                    {name:"Problemas de la Realidad Mexicana Con",
-                        key:"EGN-17162",
-                        pre:["EGN-17142, EGN-17161"],
-                        semester:5}
+                    {
+                        name: "Problemas de la Realidad Mexicana Con",
+                        key: "EGN-17162",
+                        pre: ["EGN-17142, EGN-17161"],
+                        semester: 5
+                    }
                     ,
-                    {name:"Sistemas Dinámicos",
-                        key:"MAT-12210",
-                        pre:["MAT-14102"],
-                        semester:5}
+                    {
+                        name: "Sistemas Dinámicos",
+                        key: "MAT-12210",
+                        pre: ["MAT-14102"],
+                        semester: 5
+                    }
                     ,
-                    {name:"Inferencia Estadística",
-                        key:"EST-11102",
-                        pre:["MAT-14102, EST 11101"],
-                        semester:5}
+                    {
+                        name: "Inferencia Estadística",
+                        key: "EST-11102",
+                        pre: ["MAT-14102, EST 11101"],
+                        semester: 5
+                    }
                     ,
-                    {name:"Señales y Sistemas",
-                        key:"SDI-12515",
-                        pre:["MAT-14101"],
-                        semester:5}
+                    {
+                        name: "Señales y Sistemas",
+                        key: "SDI-12515",
+                        pre: ["MAT-14101"],
+                        semester: 5
+                    }
                     ,
-                    {name:"Economía II",
-                        key:"ECO-12102",
-                        pre:["ECO-11101"],
-                        semester:5}
+                    {
+                        name: "Economía II",
+                        key: "ECO-12102",
+                        pre: ["ECO-11101"],
+                        semester: 5
+                    }
                     ,
-                    {name:"Principios de Mecatrónica",
-                        key:"SDI-11561",
-                        pre:["SDI-11322, COM-11102"],
-                        semester:6}
+                    {
+                        name: "Principios de Mecatrónica",
+                        key: "SDI-11561",
+                        pre: ["SDI-11322, COM-11102"],
+                        semester: 6
+                    }
                     ,
-                    {name:"Algoritmos Numéricos por Computadora",
-                        key:"COM-14105",
-                        pre:["COM-16203, MAT-14102"],
-                        semester:6}
+                    {
+                        name: "Algoritmos Numéricos por Computadora",
+                        key: "COM-14105",
+                        pre: ["COM-16203, MAT-14102"],
+                        semester: 6
+                    }
                     ,
-                    {name:"Procesamiento Digital de Señales",
-                        key:"SDI-12625",
-                        pre:["SDI-12515"],
-                        semester:6}
+                    {
+                        name: "Procesamiento Digital de Señales",
+                        key: "SDI-12625",
+                        pre: ["SDI-12515"],
+                        semester: 6
+                    }
                     ,
-                    {name:"Señales Aleatorias y Ruido",
-                        key:"SDI-15602",
-                        pre:["EST-11101, SDI-12515", "MAT-14102"],
-                        semester:6}
+                    {
+                        name: "Señales Aleatorias y Ruido",
+                        key: "SDI-15602",
+                        pre: ["EST-11101, SDI-12515", "MAT-14102"],
+                        semester: 6
+                    }
                     ,
-                    {name:"Teoría Electromagnética",
-                        key:"SDI-12629",
-                        pre:["MAT-14102, MAT-12210"],
-                        semester:6}
+                    {
+                        name: "Teoría Electromagnética",
+                        key: "SDI-12629",
+                        pre: ["MAT-14102, MAT-12210"],
+                        semester: 6
+                    }
                     ,
-                    {name:"Redes de Computadoras",
-                        key:"SDI-13760",
-                        pre:["MAT-14102"],
-                        semester:7}
+                    {
+                        name: "Redes de Computadoras",
+                        key: "SDI-13760",
+                        pre: ["MAT-14102"],
+                        semester: 7
+                    }
                     ,
-                    {name:"Antenas y Radiación",
-                        key:"SDI-12761",
-                        pre:["SDI-12629"],
-                        semester:7}
+                    {
+                        name: "Antenas y Radiación",
+                        key: "SDI-12761",
+                        pre: ["SDI-12629"],
+                        semester: 7
+                    }
                     ,
-                    {name:"Redes Convergentes",
-                        key:"SDI-13789",
-                        semester:7}
+                    {
+                        name: "Redes Convergentes",
+                        key: "SDI-13789",
+                        semester: 7
+                    }
                     ,
-                    {name:"Comunicaciones Digitales",
-                        key:"SDI-12726",
-                        pre:["SDI-12515, SDI-15602"],
-                        semester:7}
+                    {
+                        name: "Comunicaciones Digitales",
+                        key: "SDI-12726",
+                        pre: ["SDI-12515, SDI-15602"],
+                        semester: 7
+                    }
                     ,
-                    {name:"Diseño y Arquitectura de Redes",
-                        key:"SDI-13782",
-                        pre:["SDI-13760"],
-                        semester:8}
+                    {
+                        name: "Diseño y Arquitectura de Redes",
+                        key: "SDI-13782",
+                        pre: ["SDI-13760"],
+                        semester: 8
+                    }
                     ,
-                    {name:"Servicios de Telecomunicaciones",
-                        key:"SDI-14804",
-                        pre:["SDI-13739,SDI-12629"],
-                        semester:8}
+                    {
+                        name: "Servicios de Telecomunicaciones",
+                        key: "SDI-14804",
+                        pre: ["SDI-13739,SDI-12629"],
+                        semester: 8
+                    }
                     ,
-                    {name:"Seminario de Titulación",
-                        key:"SDI-15816",
-                        semester:8}
+                    {
+                        name: "Seminario de Titulación",
+                        key: "SDI-15816",
+                        semester: 8
+                    }
                     ,
-                    {name:"Nuevas Tecnologías Inalámbricas",
-                        key:"SDI-12872",
-                        semester:8}
+                    {
+                        name: "Nuevas Tecnologías Inalámbricas",
+                        key: "SDI-12872",
+                        semester: 8
+                    }
                     ,
-                    {name:"Comunicaciones Móviles",
-                        key:"SDI-12882",
-                        semester:8}]
+                    {
+                        name: "Comunicaciones Móviles",
+                        key: "SDI-12882",
+                        semester: 8
+                    }]
 
             }]
     }
@@ -9903,3 +10336,40 @@ var carreras = [
 
 
 ];
+var planes = [];
+var carreras2 = [];
+var reformat = function (carr) {
+
+    var tempPlan = carr.planes[0];
+    var tempMater = tempPlan.classes;
+    var semesters = [];
+    tempMater.forEach(function (item, i) {
+        var tempSemNum = item.semester;
+        delete item.semester;
+        item.enabled = false;
+        if (semesters[tempSemNum - 1] == null) {
+            semesters[tempSemNum - 1] = {
+                number: tempSemNum,
+                classes: []
+            };
+        }
+        semesters[tempSemNum - 1].classes.push(item);
+    });
+    tempPlan.semesters = semesters;
+    delete tempPlan.classes;
+    return tempPlan;
+};
+
+
+carreras.forEach(function (item, i) {
+    var plan = reformat(item);
+    var planName = plan.name;
+    var tempCarr = item;
+    planes.push(plan);
+    tempCarr.planes = [];
+    tempCarr.planes.push({name: planName, index: i});
+    tempCarr.enabled=false;
+    carreras2.push(tempCarr);
+});
+console.log('var planes ='+JSON.stringify(planes)+';');
+console.log('var carreras ='+JSON.stringify(carreras2)+';');

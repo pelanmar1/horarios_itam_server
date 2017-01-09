@@ -19,6 +19,7 @@ var searchForTeacher = function (text, list) {
     };
     var fuse = new Fuse(list, options);
     var result = fuse.search(text);
+
     return result;
 
 };

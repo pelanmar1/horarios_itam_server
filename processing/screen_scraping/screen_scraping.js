@@ -164,7 +164,8 @@ var misProfesoresScrapingAsync = function (next) {
 // Creates a url for retreving available classes for a given subject
 var createCourseURL = function (courseName) {
     courseName = courseName.replace(' ', '+');
-    return CLASSES_BY_COURSE_URL + courseName;
+    var url = unescape(encodeURIComponent(CLASSES_BY_COURSE_URL + courseName));
+    return url;
 };
 
 var formatScheduleTableData = function (data, i) {
@@ -238,6 +239,7 @@ var updateMPLFile =function(){
 
 
 
+//console.log(searchForTeacherMP('Pedro Matabuena Serrano'));
 module.exports.createCourseURL = createCourseURL;
 module.exports.scheduleTableScraping = scheduleTableScrapingAsync;
 module.exports.courseNamesDDLScraping = courseNamesDDLScrapingAsync;
