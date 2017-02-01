@@ -56,7 +56,11 @@ app.listen(port, function () {
 });
 
 //Test
+app.get('/actualizaReservas',function (req,res) {
+    actualizaReservas();
+    res.redirect('/');
 
+});
 
 
 
@@ -71,7 +75,7 @@ var cronJob = require('cron').CronJob;
 //'00 01 0 * * 1-7'
 //'00 20 8 * * 1-7'
 var trabajo = new cronJob({
-    cronTime:'00 15 13 * * 1-7',
+    cronTime:'00 00 0 * * 1-7',
     onTick:function(){
         console.log(ultimaActualizacion);
     actualizaReservas();},
@@ -145,8 +149,7 @@ function actualizaReservas(){
                             var alertMessage = $('td[class=feedbackbar]').text().trim();
                             var d = new Date();
                             var utc = d.getTime() - (d.getTimezoneOffset() * 60000);
-                            var nd = new Date(utc + (3600000*-6)).toLocaleString();
-
+                            var nd = new Date(utc + (3600000*6)).toLocaleString();
                             alertMessage=alertMessage==null?'Actualización exitosa.':alertMessage;
                             writeFile('Ultima actualización: '+nd,'Informe de última actualización: '+alertMessage);
 
