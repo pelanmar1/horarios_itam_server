@@ -26,6 +26,10 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 
 // HTTP GETs
 app.get('/',function (req,res) {
+    ultimaActualizacion = require('./reservas.js').ultimaActualizacion;
+    estadoActualizacion = require('./reservas.js').estadoActualizacion;
+    ultimaActualizacion=ultimaActualizacion==null?'-':ultimaActualizacion;
+    estadoActualizacion=estadoActualizacion==null?'-':estadoActualizacion;
     res.send(ultimaActualizacion+'<br>'+estadoActualizacion);
 });
 app.get('/loadSchedules',function (req,res) {
@@ -52,24 +56,29 @@ app.listen(port, function () {
 });
 
 //Test
+
+
+
+
 var cheerio = require('cheerio');
 var request = require('request');
 var async = require('async');
-var ultimaActualizacion;
-var estadoActualizacion;
+var fs = require('fs');
+var ultimaActualizacion = 'Por definir';
+var estadoActualizacion = 'Por definir';
 
 var cronJob = require('cron').CronJob;
 //'00 01 0 * * 1-7'
+//'00 20 8 * * 1-7'
 var trabajo = new cronJob({
-    cronTime:'00 20 8 * * 1-7',
+    cronTime:'00 15 13 * * 1-7',
     onTick:function(){
+        console.log(ultimaActualizacion);
     actualizaReservas();},
     start:true,
     timeZone:'America/Mexico_City'
 });
 trabajo.start();
-
-
 function actualizaReservas(){
     var principalURL = 'http://hammurabi.itam.mx/';
     const LOGIN_POST = '?func=login-session&local_base=LOCAL&login_source=&bor_id=147865&bor_verification=14786519951118&x=45&y=11';
@@ -134,9 +143,13 @@ function actualizaReservas(){
                         if (!err && response.statusCode === 200) {
                             $ = cheerio.load(body);
                             var alertMessage = $('td[class=feedbackbar]').text().trim();
+                            var d = new Date();
+                            var utc = d.getTime() - (d.getTimezoneOffset() * 60000);
+                            var nd = new Date(utc + (3600000*-6)).toLocaleString();
+
                             alertMessage=alertMessage==null?'Actualización exitosa.':alertMessage;
-                            ultimaActualizacion = 'Ultima actualización: '+new Date().toLocaleString();
-                            estadoActualizacion ='Informe de última actualización: '+alertMessage;
+                            writeFile('Ultima actualización: '+nd,'Informe de última actualización: '+alertMessage);
+
                         }
 
                     });
@@ -148,7 +161,22 @@ function actualizaReservas(){
 
 
 }
-
+var writeFile = function (fecha, estado) {
+    var options = {flag: 'w'};
+    var exports = 'module.exports.ultimaActualizacion = ultimaActualizacion;' +
+                    'module.exports.estadoActualizacion = estadoActualizacion;';
+    fs.truncate("./reservas.js", 0, function () {
+        fs.writeFile('./reservas.js',
+            'var ultimaActualizacion = ' +'\''+ fecha +'\';'+
+            'var estadoActualizacion = ' +'\''+ estado+'\';'+exports, options,
+            function (err) {
+                if (err) {
+                    console.error('Se presentó un problema al guardar los datos.');
+                }
+            }
+        );
+    });
+};
 
 
 
