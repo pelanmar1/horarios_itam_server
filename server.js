@@ -44,7 +44,6 @@ app.get('/loadCourses',function (req,res) {
 
 app.post('/generateSchedule',function(req,res){
     var filtersJSON = JSON.parse(req.body);
-    console.log(filtersJSON);
     res.send('OK');
 });
 
@@ -120,7 +119,6 @@ function actualizaReservas(){
         if (err)
             return console.log(err.message);
         data = data[0];
-        console.log(data);
         data.forEach(function (url,index) {
             request(url, function (err, response, body) {
                 if (!err && response.statusCode === 200) {
