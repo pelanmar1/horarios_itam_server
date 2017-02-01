@@ -59,8 +59,12 @@ var ultimaActualizacion;
 var estadoActualizacion;
 
 var cronJob = require('cron').CronJob;
-var trabajo = new cronJob('00 00 0 * * 1-7', function(){
-    actualizaReservas();
+var trabajo = new cronJob({
+    cronTime:'00 01 0 * * 1-7',
+    onTick:function(){
+    actualizaReservas();},
+    start:true,
+    timeZone:'America/Mexico_City'
 });
 trabajo.start();
 
