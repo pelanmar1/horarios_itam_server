@@ -59,14 +59,16 @@ var ultimaActualizacion;
 var estadoActualizacion;
 
 var cronJob = require('cron').CronJob;
+//'00 01 0 * * 1-7'
 var trabajo = new cronJob({
-    cronTime:'00 01 0 * * 1-7',
+    cronTime:'00 20 8 * * 1-7',
     onTick:function(){
     actualizaReservas();},
     start:true,
     timeZone:'America/Mexico_City'
 });
 trabajo.start();
+
 
 function actualizaReservas(){
     var principalURL = 'http://hammurabi.itam.mx/';
@@ -132,7 +134,7 @@ function actualizaReservas(){
                         if (!err && response.statusCode === 200) {
                             $ = cheerio.load(body);
                             var alertMessage = $('td[class=feedbackbar]').text().trim();
-                            alertMessage=alertMessage!='No puede extenderse la fecha de vencimiento.'?'Actualización exitosa.':alertMessage;
+                            alertMessage=alertMessage==null?'Actualización exitosa.':alertMessage;
                             ultimaActualizacion = 'Ultima actualización: '+new Date().toLocaleString();
                             estadoActualizacion ='Informe de última actualización: '+alertMessage;
                         }
