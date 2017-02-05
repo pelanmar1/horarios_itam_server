@@ -146,7 +146,7 @@ function actualizaReservasLibros(){
                             var alertMessage = $('td[class=feedbackbar]').text().trim();
                             var d = new Date();
                             var utc = d.getTime() - (d.getTimezoneOffset() * 60000);
-                            var nd = new Date(utc + (3600000*6)).toLocaleString();
+                            var nd = new Date(utc + (3600000*-6)).toLocaleString();
                             alertMessage=alertMessage==null?'Actualización exitosa.':alertMessage;
                             writeFile('Ultima actualización: '+nd,'Informe de última actualización: '+alertMessage);
                         }
