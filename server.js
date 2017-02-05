@@ -26,10 +26,9 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 
 // HTTP GETs
 app.get('/',function (req,res) {
+    delete require.cache[path.join(__dirname, '/reservas.js')];
     ultimaActualizacion = require('./reservas.js').ultimaActualizacion;
     estadoActualizacion = require('./reservas.js').estadoActualizacion;
-    ultimaActualizacion=ultimaActualizacion==null?'-':ultimaActualizacion;
-    estadoActualizacion=estadoActualizacion==null?'-':estadoActualizacion;
     res.send(ultimaActualizacion+'<br>'+estadoActualizacion);
 });
 app.get('/loadSchedules',function (req,res) {
@@ -56,8 +55,8 @@ app.listen(port, function () {
 });
 
 //Test
-app.get('/actualizaReservas',function (req,res) {
-    actualizaReservas();
+app.get('/actualizaReservasLibros',function (req,res) {
+    actualizaReservasLibros();
     res.redirect('/');
 
 });
@@ -68,22 +67,20 @@ var cheerio = require('cheerio');
 var request = require('request');
 var async = require('async');
 var fs = require('fs');
-var ultimaActualizacion = 'Por definir';
-var estadoActualizacion = 'Por definir';
+var ultimaActualizacion;
+var estadoActualizacion;
 
 var cronJob = require('cron').CronJob;
-//'00 01 0 * * 1-7'
-//'00 20 8 * * 1-7'
 var trabajo = new cronJob({
-    cronTime:'00 00 0 * * 1-7',
+    cronTime:'00 01 0 * * 1-7',
     onTick:function(){
         console.log(ultimaActualizacion);
-    actualizaReservas();},
+    actualizaReservasLibros();},
     start:true,
     timeZone:'America/Mexico_City'
 });
 trabajo.start();
-function actualizaReservas(){
+function actualizaReservasLibros(){
     var principalURL = 'http://hammurabi.itam.mx/';
     const LOGIN_POST = '?func=login-session&local_base=LOCAL&login_source=&bor_id=147865&bor_verification=14786519951118&x=45&y=11';
     const PAG_RESERVAS_POST='func=bor-loan&adm_library=BRB50';
@@ -152,7 +149,6 @@ function actualizaReservas(){
                             var nd = new Date(utc + (3600000*6)).toLocaleString();
                             alertMessage=alertMessage==null?'Actualización exitosa.':alertMessage;
                             writeFile('Ultima actualización: '+nd,'Informe de última actualización: '+alertMessage);
-
                         }
 
                     });

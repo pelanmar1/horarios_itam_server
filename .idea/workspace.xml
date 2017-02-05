@@ -26,16 +26,26 @@
     <favorites_list name="HorariosITAMServer" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
       <file leaf-file-name="server.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="60" column="16" selection-start-line="60" selection-start-column="16" selection-end-line="60" selection-end-column="16" />
+            <state relative-caret-position="33">
+              <caret line="1" column="28" selection-start-line="1" selection-start-column="28" selection-end-line="1" selection-end-column="28" />
               <folding>
-                <element signature="n#!!block;n#actualizaReservas#0" expanded="false" />
-                <element signature="e#6161#6776#0" expanded="false" />
+                <element signature="n#!!block;n#actualizaReservasLibros#0" expanded="false" />
+                <element signature="e#6026#6641#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="reservas.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/reservas.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="42" selection-start-line="0" selection-start-column="42" selection-end-line="0" selection-end-column="42" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -66,9 +76,9 @@
         <option value="$PROJECT_DIR$/public/planes_de_estudio/carreras2.js" />
         <option value="$PROJECT_DIR$/processing/search_engine/searchEngine.js" />
         <option value="$PROJECT_DIR$/processing/screen_scraping/screen_scraping.js" />
-        <option value="$PROJECT_DIR$/processing/schedule_generator/schedule_gen.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/reservas.html" />
+        <option value="$PROJECT_DIR$/processing/schedule_generator/schedule_gen.js" />
         <option value="$PROJECT_DIR$/reservas.js" />
         <option value="$PROJECT_DIR$/server.js" />
       </list>
@@ -116,8 +126,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -136,54 +144,10 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HorariosITAMServer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HorariosITAMServer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HorariosITAMServer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HorariosITAMServer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="processing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HorariosITAMServer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HorariosITAMServer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="processing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="screen_scraping" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -319,11 +283,15 @@
       <workItem from="1485965656347" duration="2668000" />
       <workItem from="1485990969774" duration="14000" />
       <workItem from="1485991345814" duration="615000" />
+      <workItem from="1485992189480" duration="24000" />
+      <workItem from="1485992533930" duration="59000" />
+      <workItem from="1485994905151" duration="1299000" />
+      <workItem from="1486319901638" duration="2420000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="52132000" />
+    <option name="totallyTimeSpent" value="55934000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-13" y="-13" width="2762" height="1770" extended-state="6" />
@@ -344,7 +312,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32936507" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936507" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -371,8 +339,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="n#!!block;n#actualizaReservas#0" expanded="false" />
-            <element signature="e#6161#6776#0" expanded="false" />
+            <element signature="n#!!block;n#actualizaReservasLibros#0" expanded="false" />
+            <element signature="e#6026#6641#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -382,8 +350,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="n#!!block;n#actualizaReservas#0" expanded="false" />
-            <element signature="e#6161#6776#0" expanded="false" />
+            <element signature="n#!!block;n#actualizaReservasLibros#0" expanded="false" />
+            <element signature="e#6026#6641#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -393,8 +361,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="n#!!block;n#actualizaReservas#0" expanded="false" />
-            <element signature="e#6161#6776#0" expanded="false" />
+            <element signature="n#!!block;n#actualizaReservasLibros#0" expanded="false" />
+            <element signature="e#6026#6641#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -404,8 +372,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="n#!!block;n#actualizaReservas#0" expanded="false" />
-            <element signature="e#6161#6776#0" expanded="false" />
+            <element signature="n#!!block;n#actualizaReservasLibros#0" expanded="false" />
+            <element signature="e#6026#6641#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -415,8 +383,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="n#!!block;n#actualizaReservas#0" expanded="false" />
-            <element signature="e#6161#6776#0" expanded="false" />
+            <element signature="n#!!block;n#actualizaReservasLibros#0" expanded="false" />
+            <element signature="e#6026#6641#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -426,8 +394,41 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="n#!!block;n#actualizaReservas#0" expanded="false" />
-            <element signature="e#6161#6776#0" expanded="false" />
+            <element signature="n#!!block;n#actualizaReservasLibros#0" expanded="false" />
+            <element signature="e#6026#6641#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!block;n#actualizaReservasLibros#0" expanded="false" />
+            <element signature="e#6026#6641#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!block;n#actualizaReservasLibros#0" expanded="false" />
+            <element signature="e#6026#6641#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!block;n#actualizaReservasLibros#0" expanded="false" />
+            <element signature="e#6026#6641#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -444,8 +445,8 @@
         <state relative-caret-position="1518">
           <caret line="46" column="27" selection-start-line="46" selection-start-column="27" selection-end-line="46" selection-end-column="27" />
           <folding>
-            <element signature="n#!!block;n#actualizaReservas#0" expanded="false" />
-            <element signature="e#6161#6776#0" expanded="false" />
+            <element signature="n#!!block;n#actualizaReservasLibros#0" expanded="false" />
+            <element signature="e#6026#6641#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -537,13 +538,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/processing/schedule_generator/schedule_gen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="1984" column="8" selection-start-line="1984" selection-start-column="8" selection-end-line="1984" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/processing/screen_scraping/mis_profesores_list.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -559,13 +553,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/reservas.txt" />
-    <entry file="file://$PROJECT_DIR$/reservas.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="3" column="57" selection-start-line="3" selection-start-column="57" selection-end-line="3" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/reservas.html" />
     <entry file="file://$PROJECT_DIR$/processing/screen_scraping/screen_scraping.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -574,13 +561,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/processing/schedule_generator/schedule_gen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="1983" column="0" selection-start-line="1983" selection-start-column="0" selection-end-line="1984" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/Prueba/horarios-itam-server/reservas.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/reservas.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="42" selection-start-line="0" selection-start-column="42" selection-end-line="0" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="60" column="16" selection-start-line="60" selection-start-column="16" selection-end-line="60" selection-end-column="16" />
+        <state relative-caret-position="33">
+          <caret line="1" column="28" selection-start-line="1" selection-start-column="28" selection-end-line="1" selection-end-column="28" />
           <folding>
-            <element signature="n#!!block;n#actualizaReservas#0" expanded="false" />
-            <element signature="e#6161#6776#0" expanded="false" />
+            <element signature="n#!!block;n#actualizaReservasLibros#0" expanded="false" />
+            <element signature="e#6026#6641#0" expanded="false" />
           </folding>
         </state>
       </provider>
