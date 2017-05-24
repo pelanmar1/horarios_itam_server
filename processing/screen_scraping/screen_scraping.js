@@ -2,8 +2,8 @@
  * Created by Pedro Lanzagorta M on 12/22/2016.
  */
 
-const SEMESTER_CLASSES_URL = 'http://grace.itam.mx/EDSUP/BWZKSENP.P_Horarios1?s=1181';
-const CLASSES_BY_COURSE_URL = 'http://grace.itam.mx/EDSUP/BWZKSENP.P_Horarios2?s=1181&txt_materia=';
+const SEMESTER_CLASSES_URL = 'http://grace.itam.mx/EDSUP/BWZKSENP.P_Horarios1?s=1231';
+const CLASSES_BY_COURSE_URL = SEMESTER_CLASSES_URL+'&txt_materia=';
 const MIS_PROFESORES_ITAM_URL = 'http://www.misprofesores.com/escuelas/ITAM-Instituto-Tecnologico-Autonomo-de-Mexico_1003';
 
 // module requirements
@@ -11,7 +11,6 @@ var fs = require('fs');
 var request = require('request');
 var cheerio = require('cheerio');
 var async = require('async');
-
 // File requires:
 var misProfesoresList = require('./mis_profesores_list.js').misProfesoresList;
 var searchEngine = require('../search_engine/searchEngine.js');
