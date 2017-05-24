@@ -3,7 +3,7 @@
  */
 
 const SEMESTER_CLASSES_URL = 'http://grace.itam.mx/EDSUP/BWZKSENP.P_Horarios1?s=1231';
-const CLASSES_BY_COURSE_URL = SEMESTER_CLASSES_URL+'&txt_materia=';
+const CLASSES_BY_COURSE_URL = SEMESTER_CLASSES_URL.concat('&txt_materia=');
 const MIS_PROFESORES_ITAM_URL = 'http://www.misprofesores.com/escuelas/ITAM-Instituto-Tecnologico-Autonomo-de-Mexico_1003';
 
 // module requirements

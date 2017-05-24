@@ -29,7 +29,7 @@ app.get('/',function (req,res) {
     res.send('Connected.');
 });
 app.get('/loadSchedules',function (req,res) {
-    var courseName = req.param('cName');
+    var courseName = req.query.cName;
     var url =screenScraping.createCourseURL(courseName);
     screenScraping.scheduleTableScraping(url,function (data) {
         res.send(data);
