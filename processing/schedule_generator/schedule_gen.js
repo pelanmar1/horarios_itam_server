@@ -2126,6 +2126,11 @@ var classes = [
     }]
 ];
 
-var z = filterClasses(classes,x);
-console.log(z[3]);
 
+
+//var z = filterClasses(classes,x);
+//console.log(z);
+
+
+module.exports.filterClasses = filterClasses;
+module.exports.getValidClassCombinations = getValidClassCombinations;
