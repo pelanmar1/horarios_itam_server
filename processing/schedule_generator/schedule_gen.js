@@ -45,13 +45,14 @@ var classOverlaps = function (startTime, endTime, days, schedMatrix) { //time & 
 
 // Receives days in scraped format and returns an array with the correspinding index to each day in course.
 var formatDays = function (days) {
-    days = days.split(',');
-    var daysC = ['LU', 'MA', 'MI', 'JU', 'VI'];
-    var nDays = [];
-    for (var i = 0; i < days.length; i++) {
-        days[i] = (days[i] + '').toUpperCase();
-        nDays.push(daysC.indexOf(days[i]));
-    }
+    var daysC = ['DO','LU', 'MA', 'MI', 'JU', 'VI','SA'];
+        days = days.split(',');
+        var nDays = [];
+        for (var i = 0; i < days.length; i++) {
+            days[i] = (days[i] + '').toUpperCase();
+            nDays.push(daysC.indexOf(days[i]));
+        }
+    
     return nDays;
 };
 
@@ -170,6 +171,7 @@ var getValidClassCombinations = function (lists) {
     return validSched;
 };
 
+// Checks is given schedules overlap
 var isTimeOutsideInterval = function (sTime1, eTime1, sTime2, eTime2) {
     return ((sTime1 > sTime2 && sTime1 >= eTime2) || (eTime1 <= sTime2 && eTime1 < eTime2));
 };
@@ -192,10 +194,11 @@ var getMisProfesoresAvgScore = function (classes) {
         }
     });
 
-    return (k==0)?0:(sum/k);
+    return (k==0)?-1:(sum/k);
 }
 
 //Given a set of classes with all available groups, return all filtered sets.
+
 var filterClasses = function (classes, filters) {
     var final = [];
     if (filters!= null && classes!= null){
@@ -206,41 +209,69 @@ var filterClasses = function (classes, filters) {
         var avoidDay = null;
         var hoursToAvoid = null;
         var mustGroups = null;
-        var misProfMinAvgScore =null;
-
+        var misProfMinAvgScore =null;        
         if (filters.hasOwnProperty('avoidDay') && filters.avoidDay.length > 0)
             avoidDay = filters.avoidDay;
         if (filters.hasOwnProperty('avoidHours') && filters.avoidHours.length > 0)
             hoursToAvoid = filters.avoidHours;
-        if (filters.hasOwnProperty('mustHaveGroups') && filters.mustGroups!=null && filters.mustHaveGroups.length > 0)
-            mustGroups = filters.mustHaveGroups;
+        if (filters.hasOwnProperty('mustHaveGroups') && filters.mustHaveGroups!=null && filters.mustHaveGroups.length > 0)
+            mustGroups = filters.mustHaveGroups
         if(filters.hasOwnProperty('misProfMinAvgScore') && filters.misProfMinAvgScore>0)
             misProfMinAvgScore= filters.misProfMinAvgScore;
         for (var j = 0; j < temp.length; j++) {
             k = 0;
+            var time,days;
+            var altTime, altDays;
+            var labTime, labDays;
             while (go && k < temp[j].length) {
-                var time = formatTime(temp[j][k].schedule);
-                var days = formatDays(temp[j][k].days);
+                time = formatTime(temp[j][k].schedule);
+                days = formatDays(temp[j][k].days);
+                if (temp[j][k].hasOwnProperty('alternative') && temp[j][k].alternative!=null){
+                    altDays = formatDays(temp[j][k].alternative.days);
+                    altTime = formatTime(temp[j][k].alternative.schedule);
+                }
+                if (temp[j][k].hasOwnProperty('laboratory') && temp[j][k].laboratory!=null){
+                    labDays = formatDays(temp[j][k].laboratory.days);
+                    labTime = formatTime(temp[j][k].laboratory.schedule);
+                }
                 if (avoidDay != null) {
                     var a =0;
                     while(go&&a<avoidDay.length) {
                         go = go && (days.indexOf(avoidDay[a]) == -1);
+                        if(labDays!= null)
+                            go = go && (labDays.indexOf(avoidDay[a]) == -1);
+                        if(altDays!= null)
+                            go = go && (altDays.indexOf(avoidDay[a]) == -1);
                         a++;
                     }
                 }
                 if (hoursToAvoid != null) {
                     var h = 0;
                     while (go && h < hoursToAvoid.length) {
-                        if (hoursToAvoid[h].days != null && !(hoursToAvoid[h].length == 1 && hoursToAvoid[h].days[0] == 7)) {
+                        if (hoursToAvoid[h].days != null && !(hoursToAvoid[h].days.length == 1 && hoursToAvoid[h].days[0] == 7)) {
                             var d = 0;
                             while (go && d < hoursToAvoid[h].days.length) {
-                                if (days.indexOf(hoursToAvoid[h].days[d]) > 0)
+                                if (days.indexOf(hoursToAvoid[h].days[d]) >= 0)
                                     go = go && (isTimeOutsideInterval(hoursToAvoid[h].startTime, hoursToAvoid[h].endTime, time[0], time[1]));
+                                if(labDays!=null){
+                                    if (labDays.indexOf(hoursToAvoid[h].days[d]) >= 0)
+                                        go = go && (isTimeOutsideInterval(hoursToAvoid[h].startTime, hoursToAvoid[h].endTime, labTime[0], labTime[1]));
+                                }
+                                if(altDays!=null){
+                                    if (altDays.indexOf(hoursToAvoid[h].days[d]) >= 0)
+                                        go = go && (isTimeOutsideInterval(hoursToAvoid[h].startTime, hoursToAvoid[h].endTime, altTime[0], altTime[1]));
+                                }
                                 d++;
                             }
                         }
-                        else {
+                        else if (hoursToAvoid[h].days!=null){
                             go = go && (isTimeOutsideInterval(hoursToAvoid[h].startTime, hoursToAvoid[h].endTime, time[0], time[1]));
+                            if(altDays!=null){
+                                    go = go && (isTimeOutsideInterval(hoursToAvoid[h].startTime, hoursToAvoid[h].endTime, altTime[0], altTime[1]));
+                            }
+                            if(labDays!=null){
+                                    go = go && (isTimeOutsideInterval(hoursToAvoid[h].startTime, hoursToAvoid[h].endTime, labTime[0], labTime[1]));
+                            }
                         }
                         h++;
                     }
@@ -260,7 +291,7 @@ var filterClasses = function (classes, filters) {
             if (go) {
                 if(misProfMinAvgScore !=null){
                     var score = getMisProfesoresAvgScore(temp[j]);
-                    go= go && score>=misProfMinAvgScore;
+                    go= go && (score ==-1 ||score>=misProfMinAvgScore);
                 }
                 final.push(temp[j]);
             }
@@ -274,7 +305,7 @@ var filterClasses = function (classes, filters) {
 
 
 var x = {
-    avoidDay: [4], // EVITA CLASES EL DÍA VIERNES
+    avoidDay: [5], // EVITA CLASES EL DÍA VIERNES
     avoidHours: [
         {
             days: [7],//[TODOS LOS DÍAS]
@@ -282,16 +313,14 @@ var x = {
             endTime: 8
         },
         {
-            days: [0, 2], //[LUNES,MIÉRCOLES]
-            startTime: 16, // 4 PM
-            endTime: 18    // 6 PM
+            days: [1,3], //[LUNES,MIÉRCOLES]
+            startTime: 13, // 4 PM
+            endTime: 16    // 6 PM
         }
     ],
     mustHaveGroups: ['IIO-13160-002', 'ECO-12102-003','SDI-11561-004'], // DEPARTAMENTO-CLAVE-GRUPO
-    misProfMinAvgScore: 8
+    misProfMinAvgScore: 7
 };
-
-
 
 
 var classes = [
@@ -392,11 +421,9 @@ var classes = [
     }]
 ];
 
-
-
 //var z = filterClasses(classes,x);
+//console.log(classes[0][0])
 //console.log(z);
-
 
 module.exports.filterClasses = filterClasses;
 module.exports.getValidClassCombinations = getValidClassCombinations;
