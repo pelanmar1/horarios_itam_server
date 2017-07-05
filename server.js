@@ -52,17 +52,26 @@ app.post('/generateSchedule',function(req,res){
     if(postCourses!=null && postCourses.length>0){
         screenScraping.courseNamesDDLScraping(function (courses) {   
             postCourses = cleanCourses(postCourses,courses,true);
-            namesToCourses(postCourses,function(finalCourses){
-                if(postFilters!=null && postFilters.hasOwnProperty('mustHaveGroups') && postFilters.mustHaveGroups.length > 0){
-                    finalFilters=cleanCourses(postFilters.mustHaveGroups,courses,false);
-                    combos = schedule_generator.filterClasses(finalCourses,finalFilters);
-                }
-                else{
-                    combos = schedule_generator.getValidClassCombinations(finalCourses);
-                }
-                res.send(combos);
-                    
-            });
+            if(postCourses!=null && postCourses.length>0){
+                namesToCourses(postCourses,function(finalCourses){
+                    if(postFilters!=null && postFilters.hasOwnProperty('mustHaveGroups') && postFilters.mustHaveGroups.length > 0){
+                        finalFilters = postFilters;
+                        finalFilters.mustHaveGroups =cleanCourses(postFilters.mustHaveGroups,courses,false);
+                        if (finalFilters!=null)
+                            combos = schedule_generator.filterClasses(finalCourses,finalFilters);
+                        else
+                            combos = schedule_generator.getValidClassCombinations(finalCourses);
+                    }
+                    else{
+                        combos = schedule_generator.getValidClassCombinations(finalCourses);
+                    }
+                    res.send(combos);
+                        
+                });
+            }
+            else{
+                res.send(403, {error: "Los cursos ingresados no se encuentran disponibles este periodo."});
+            }
             
             
             
@@ -73,6 +82,7 @@ app.post('/generateSchedule',function(req,res){
 app.listen(port, function () {
     console.log('I\'m listening');
 });
+
 
 var cleanCourses = function(inputCourses,courses,coursesFormat){
     postCourses =[]
