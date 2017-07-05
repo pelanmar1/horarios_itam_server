@@ -177,22 +177,24 @@ var isTimeOutsideInterval = function (sTime1, eTime1, sTime2, eTime2) {
 };
 
 var getMisProfesoresAvgScore = function (classes) {
-    var sum = 0;
     var k = 0;
-    classes.forEach(function (item, i) {
-        if (item.teacher.misProfesoresData != null) {
-            sum += parseFloat(item.teacher.misProfesoresData.score);
-            k++;
-        }
-        if(item.alternative!=null&&item.alternative.teacher.misProfesoresData!=null&&item.alternative.teacher.name!=item.teacher.name){
-            sum += parseFloat(item.alternative.teacher.misProfesoresData.score);
-            k++;
-        }
-        if(item.laboratory!=null&&item.laboratory.teacher.misProfesoresData!=null&&item.laboratory.teacher.name!=item.teacher.name){
-            sum += parseFloat(item.laboratory.teacher.misProfesoresData.score);
-            k++;
-        }
-    });
+    if(classes!=null && classes.length>0){
+        var sum = 0;
+        classes.forEach(function (item, i) {
+            if (item.teacher.misProfesoresData != null) {
+                sum += parseFloat(item.teacher.misProfesoresData.score);
+                k++;
+            }
+            if(item.alternative!=null&&item.alternative.teacher.misProfesoresData!=null&&item.alternative.teacher.name!=item.teacher.name){
+                sum += parseFloat(item.alternative.teacher.misProfesoresData.score);
+                k++;
+            }
+            if(item.laboratory!=null&&item.laboratory.teacher.misProfesoresData!=null&&item.laboratory.teacher.name!=item.teacher.name){
+                sum += parseFloat(item.laboratory.teacher.misProfesoresData.score);
+                k++;
+            }
+        });
+    }
 
     return (k==0)?-1:(sum/k);
 }
@@ -293,7 +295,9 @@ var filterClasses = function (classes, filters) {
                     var score = getMisProfesoresAvgScore(temp[j]);
                     go= go && (score ==-1 ||score>=misProfMinAvgScore);
                 }
-                final.push(temp[j]);
+                if(go){
+                    final.push(temp[j]);
+                }
             }
             else
                 go = true;
@@ -314,12 +318,12 @@ var x = {
         },
         {
             days: [1,3], //[LUNES,MIÉRCOLES]
-            startTime: 13, // 4 PM
-            endTime: 16    // 6 PM
+            startTime: 10, // 4 PM
+            endTime: 11.5    // 6 PM
         }
     ],
-    mustHaveGroups: ['IIO-13160-002', 'ECO-12102-003','SDI-11561-004'], // DEPARTAMENTO-CLAVE-GRUPO
-    misProfMinAvgScore: 7
+     // DEPARTAMENTO-CLAVE-GRUPO
+    misProfMinAvgScore: 0
 };
 
 
@@ -420,10 +424,13 @@ var classes = [
         "comments": ""
     }]
 ];
+//classes = [    [{"department":"ECO","key":"12102","groupNum":"001","classType":"T","name":"ECONOMIA, II","teacher":{"name":"CHRISTIANE FABREGA CHIMALI","misProfesoresData":{"name":"CHRISTIANE FABREGA CHIMALI","department":"ECONOMÍA","numReviews":"66","score":"8.6","link":"http://www.misprofesores.com/profesores/Christiane-Fabrega-Chimali_22910"}},"credits":"7","schedule":"11:30-13:00","days":"LU,MI","classroom":"RH113","campus":"RIO HONDO","comments":""},{"department":"ECO","key":"12102","groupNum":"002","classType":"T","name":"ECONOMIA, II","teacher":{"name":"JOSE MARIA DA ROCHA ALVAREZ","misProfesoresData":{"name":"JOSE MARIA DA ROCHA ALVAREZ","department":"ECONOMIA","numReviews":"10","score":"4.0","link":"http://www.misprofesores.com/profesores/Jose-Maria-Da-Rocha-Alvarez_68162"}},"credits":"7","schedule":"11:30-13:00","days":"LU,MI","classroom":"RH317","campus":"RIO HONDO","comments":""},{"department":"ECO","key":"12102","groupNum":"003","classType":"T","name":"ECONOMIA, II","teacher":{"name":"VALERIA MOY CAMPOS","misProfesoresData":{"name":"VALERIA MOY","department":"ECONOMIA","numReviews":"97","score":"8.4","link":"http://www.misprofesores.com/profesores/Valeria-Moy_15794"}},"credits":"7","schedule":"08:30-10:00","days":"MA,JU","classroom":"RH101","campus":"RIO HONDO","comments":""},{"department":"ECO","key":"12102","groupNum":"004","classType":"T","name":"ECONOMIA, II","teacher":{"name":"VALERIA MOY CAMPOS","misProfesoresData":{"name":"VALERIA MOY","department":"ECONOMIA","numReviews":"97","score":"8.4","link":"http://www.misprofesores.com/profesores/Valeria-Moy_15794"}},"credits":"7","schedule":"10:00-11:30","days":"MA,JU","classroom":"RH103","campus":"RIO HONDO","comments":""},{"department":"ECO","key":"12102","groupNum":"005","classType":"T","name":"ECONOMIA, II","teacher":{"name":"IRENE CLARA RIVADENEYRA WOZNIAK","misProfesoresData":{"name":"IRENE CLARA RIVADENEYRA WOZNIAK","department":"ECONOMÍA","numReviews":"53","score":"7.7","link":"http://www.misprofesores.com/profesores/Irene-Clara-Rivadeneyra-Wozniak_10773"}},"credits":"7","schedule":"08:30-10:00","days":"LU,MI","classroom":"RH101","campus":"RIO HONDO","comments":""},{"department":"ECO","key":"12102","groupNum":"006","classType":"T","name":"ECONOMIA, II","teacher":{"name":"IRENE CLARA RIVADENEYRA WOZNIAK","misProfesoresData":{"name":"IRENE CLARA RIVADENEYRA WOZNIAK","department":"ECONOMÍA","numReviews":"53","score":"7.7","link":"http://www.misprofesores.com/profesores/Irene-Clara-Rivadeneyra-Wozniak_10773"}},"credits":"7","schedule":"08:30-10:00","days":"MA,JU","classroom":"RH108","campus":"RIO HONDO","comments":""},{"department":"ECO","key":"12102","groupNum":"007","classType":"T","name":"ECONOMIA, II","teacher":{"name":"FRANCISCO RAFAEL PADILLA CATALAN","misProfesoresData":{"name":"FRANCISCO RAFAEL PADILLA","department":"ECONOMIA","numReviews":"12","score":"9.2","link":"http://www.misprofesores.com/profesores/Francisco-Rafael-Padilla_56490"}},"credits":"7","schedule":"07:00-08:30","days":"MA,JU","classroom":"RH113","campus":"RIO HONDO","comments":""},{"department":"ECO","key":"12102","groupNum":"008","classType":"T","name":"ECONOMIA, II","teacher":{"name":"MISHELLE LISSETTE SEGUI PEREZ","misProfesoresData":{"name":"MICHELLE SEGUI PEREZ","department":"ECONOMIA","numReviews":"7","score":"8.3","link":"http://www.misprofesores.com/profesores/michelle-segui-perez_40715"}},"credits":"7","schedule":"10:00-11:30","days":"LU,MI","classroom":"RH103","campus":"RIO HONDO","comments":""},{"department":"ECO","key":"12102","groupNum":"009","classType":"T","name":"ECONOMIA, II","teacher":{"name":"RODRIGO SANCHEZ GAVITO PORTILLA","misProfesoresData":{"name":"RODRIGO GAVITO","department":"ECONOMÍA 2","numReviews":"2","score":"7.5","link":"http://www.misprofesores.com/profesores/Rodrigo-Gavito_71019"}},"credits":"7","schedule":"08:30-10:00","days":"MA,JU","classroom":"RH109","campus":"RIO HONDO","comments":""},{"department":"ECO","key":"12102","groupNum":"010","classType":"T","name":"ECONOMIA, II","teacher":{"name":"MARIA INES CARAZA HERRASTI","misProfesoresData":{"name":"MARÍA MARGARETA BEJAN","department":"ADMINISTRACIÓN","numReviews":"5","score":"6.2","link":"http://www.misprofesores.com/profesores/Maria-Margareta-Bejan_10745"}},"credits":"7","schedule":"17:30-19:00","days":"LU,MI","classroom":"RH312","campus":"RIO HONDO","comments":""},{"department":"ECO","key":"12102","groupNum":"011","classType":"T","name":"ECONOMIA, II","teacher":{"name":"VICTOR HUGO GOMEZ AYALA","misProfesoresData":{"name":"VICTOR HUGO GOMEZ AYALA","department":"ECONOMIA","numReviews":"","score":"","link":"http://www.misprofesores.com/profesores/Victor-hugo-gomez-ayala_72112"}},"credits":"7","schedule":"07:00-08:30","days":"MA,JU","classroom":"RH110","campus":"RIO HONDO","comments":""},{"department":"ECO","key":"12102","groupNum":"012","classType":"T","name":"ECONOMIA, II","teacher":{"name":"VICTOR HUGO GOMEZ AYALA","misProfesoresData":{"name":"VICTOR HUGO GOMEZ AYALA","department":"ECONOMIA","numReviews":"","score":"","link":"http://www.misprofesores.com/profesores/Victor-hugo-gomez-ayala_72112"}},"credits":"7","schedule":"07:00-10:00","days":"VI","classroom":"RH110","campus":"RIO HONDO","comments":""},{"department":"ECO","key":"12102","groupNum":"013","classType":"T","name":"ECONOMIA, II","teacher":{"name":"CHRISTIANE FABREGA CHIMALI","misProfesoresData":{"name":"CHRISTIANE FABREGA CHIMALI","department":"ECONOMÍA","numReviews":"66","score":"8.6","link":"http://www.misprofesores.com/profesores/Christiane-Fabrega-Chimali_22910"}},"credits":"7","schedule":"10:00-11:30","days":"LU,MI","classroom":"RH113","campus":"RIO HONDO","comments":""},{"department":"ECO","key":"12102","groupNum":"014","classType":"T","name":"ECONOMIA, II","teacher":{"name":""},"credits":"7","schedule":"07:00-08:30","days":"MA,JU","classroom":"RH103","campus":"RIO HONDO","comments":""},{"department":"ECO","key":"12102","groupNum":"015","classType":"T","name":"ECONOMIA, II","teacher":{"name":"ANTONIO BASSOLS QUIROZ","misProfesoresData":{"name":"ANTONIO BASSOLS QUIROZ","department":"ECONOMIA","numReviews":"9","score":"3.9","link":"http://www.misprofesores.com/profesores/Antonio-Bassols-Quiroz_56535"}},"credits":"7","schedule":"07:00-10:00","days":"VI","classroom":"RH304","campus":"RIO HONDO","comments":""}]];
 
-//var z = filterClasses(classes,x);
+
+var z = filterClasses(classes,x);
 //console.log(classes[0][0])
-//console.log(z);
+console.log(z);
+//console.log(getMisProfesoresAvgScore(z[1]));
 
 module.exports.filterClasses = filterClasses;
 module.exports.getValidClassCombinations = getValidClassCombinations;
