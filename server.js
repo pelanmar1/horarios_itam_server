@@ -7,6 +7,7 @@ var path = require('path');
 var port = process.env.PORT || 8000;
 var app = express();
 var async = require('async');
+var cors = require('cors');
 
 
 
@@ -19,6 +20,7 @@ app.use(function(req, res, next) {
     next();
 });
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(cors());
 
 var bodyParser = require('body-parser')
 app.use(bodyParser.json() );       // to support JSON-encoded bodies
