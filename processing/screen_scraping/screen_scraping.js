@@ -236,8 +236,6 @@ var updateMPLFile =function(){
     });
 };
 
-
-
 //console.log(searchForTeacherMP('Pedro Matabuena Serrano'));
 module.exports.createCourseURL = createCourseURL;
 module.exports.scheduleTableScraping = scheduleTableScrapingAsync;

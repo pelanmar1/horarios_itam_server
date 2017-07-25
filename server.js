@@ -50,6 +50,7 @@ app.get('/loadCourses',function (req,res) {
 app.post('/generateSchedule',function(req,res){
     postCourses = req.body.courses;
     postFilters = req.body.filters;
+    postFilters = formatAvoidHours(postFilters);
     combos = [];
     if(postCourses!=null && postCourses.length>0){
         screenScraping.courseNamesDDLScraping(function (courses) {   
@@ -85,6 +86,9 @@ app.listen(port, function () {
     console.log('I\'m listening');
 });
 
+// Takes in an array of simple KEY-GROUP courses and returns formatted available courses
+// if coursesFormat = true, the resulting format will be the official (Group-less)
+// if coursesFormat = false, the resulting format will be as given in the input
 
 var cleanCourses = function(inputCourses,courses,coursesFormat){
     postCourses =[]
@@ -107,13 +111,15 @@ var cleanCourses = function(inputCourses,courses,coursesFormat){
     return temp;
 }
 
+// Takes in an array with course names in the format KEY-NAME and returns an 2D array of options
 var namesToCourses = function(inputCourses,next){
     var courses = [];
     var url;
     async.map(inputCourses, function (target, callback) {
     url =screenScraping.createCourseURL(target);
     screenScraping.scheduleTableScraping(url,function (data) {
-        courses.push(data);
+        if(data!=null && data.length>0)
+            courses.push(data);
         callback(null,courses)
     });
 
@@ -124,6 +130,31 @@ var namesToCourses = function(inputCourses,next){
     });
     
 }
+
+
+var formatAvoidHours = function(filters){
+    if (filters!=null){
+        if (filters.hasOwnProperty('avoidHours') && filters.avoidHours!=null && filters.avoidHours.length>0){
+            for (var i =0;i<filters.avoidHours.length;i++){
+                var temp = filters.avoidHours[i];
+                temp.startTime = formatHours(temp.startTime);
+                temp.endTime = formatHours(temp.endTime);
+                filters.avoidHours[i] = temp;
+            }
+        }
+    }
+    return filters;
+}
+
+var formatHours = function(dateObject){
+    var hour = parseInt(dateObject.getHours());
+    var minutes = parseInt(dateObject.getMinutes());
+    if (minutes != 0)
+        hour+=0.5
+    return hour
+}
+
+
 
 
 var screenScraping = require('./processing/screen_scraping/screen_scraping.js');
