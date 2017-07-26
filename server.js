@@ -64,8 +64,10 @@ app.post('/generateSchedule',function(req,res){
                         if(postFilters.hasOwnProperty('mustHaveGroups') && postFilters.mustHaveGroups.length > 0){
                             finalFilters.mustHaveGroups =cleanCourses(postFilters.mustHaveGroups,courses,false);
                         }
-                        if (finalFilters!=null)
+                        if (finalFilters!=null){
                             combos = schedule_generator.filterClasses(finalCourses,finalFilters);
+                            console.log(combos.length);
+                        }
                         else
                             combos = schedule_generator.getValidClassCombinations(finalCourses);
                     }
