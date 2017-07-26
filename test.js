@@ -86,7 +86,7 @@ var x = {
 };
 
 
-var json1 = {"carreras":[{"name":"Administración y Actuaría","planes":[{"name":"aac_C","index":0}],"enabled":true,"$$hashKey":"object:31"}],"courses":["ADM-12107"],"filters":{"avoidDay":[],"avoidHours":[{"days":[5],"startTime":"2017-07-25T14:00:31.291Z","endTime":"2017-07-25T15:00:31.291Z","$$hashKey":"object:342"}],"mustHaveGroups":[]}};
+var json1 = {"carreras":[{"name":"Ingeniería Industrial","planes":[{"name":"ind_F","index":21}],"enabled":true,"$$hashKey":"object:61"}],"courses":["COM-14105","IIO-15150","IIO-13180","EST-11101"],"filters":{"avoidDay":[],"avoidHours":[{"days":[1,3],"startTime":"2017-07-25T14:00:56.041Z","endTime":"2017-07-25T15:00:56.041Z","$$hashKey":"object:589"}],"mustHaveGroups":[]}};
 
 var test1 = function(json){
     postCourses = json.courses;
@@ -103,10 +103,12 @@ var test1 = function(json){
                         if(postFilters.hasOwnProperty('mustHaveGroups') && postFilters.mustHaveGroups.length > 0){
                             finalFilters.mustHaveGroups =cleanCourses(postFilters.mustHaveGroups,courses,false);
                         }
-                        if (finalFilters!=null)
+                        if (finalFilters!=null){
+                            console.log(JSON.stringify(finalFilters))
                             combos = schedule_generator.filterClasses(finalCourses,finalFilters);
-                        else
+                        }else{
                             combos = schedule_generator.getValidClassCombinations(finalCourses);
+                            }
                     }
                     else{
                         combos = schedule_generator.getValidClassCombinations(finalCourses);
