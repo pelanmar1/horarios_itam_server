@@ -86,3 +86,66 @@ var x = {
 };
 
 
+var json1 = {"carreras":[{"name":"Administración y Actuaría","planes":[{"name":"aac_C","index":0}],"enabled":true,"$$hashKey":"object:31"}],"courses":["ADM-12107"],"filters":{"avoidDay":[],"avoidHours":[{"days":[5],"startTime":"2017-07-25T14:00:31.291Z","endTime":"2017-07-25T15:00:31.291Z","$$hashKey":"object:342"}],"mustHaveGroups":[]}};
+
+var test1 = function(json){
+    postCourses = json.courses;
+    postFilters = json.filters;
+    postFilters = formatAvoidHours(postFilters);
+    combos = [];
+    if(postCourses!=null && postCourses.length>0){
+        screenScraping.courseNamesDDLScraping(function (courses) {   
+            postCourses = cleanCourses(postCourses,courses,true);
+            if(postCourses!=null && postCourses.length>0){
+                namesToCourses(postCourses,function(finalCourses){
+                    if(postFilters!=null){
+                        finalFilters = postFilters;
+                        if(postFilters.hasOwnProperty('mustHaveGroups') && postFilters.mustHaveGroups.length > 0){
+                            finalFilters.mustHaveGroups =cleanCourses(postFilters.mustHaveGroups,courses,false);
+                        }
+                        if (finalFilters!=null)
+                            combos = schedule_generator.filterClasses(finalCourses,finalFilters);
+                        else
+                            combos = schedule_generator.getValidClassCombinations(finalCourses);
+                    }
+                    else{
+                        combos = schedule_generator.getValidClassCombinations(finalCourses);
+                    }
+                    console.log('COMBOS: '+combos.length);
+                        
+                });
+            }
+            else{
+                console.log("Los cursos ingresados no se encuentran disponibles este periodo.");
+            }
+            
+            
+            
+        });
+
+    }
+}
+
+var formatAvoidHours = function(filters){
+    if (filters!=null){
+        if (filters.hasOwnProperty('avoidHours') && filters.avoidHours!=null && filters.avoidHours.length>0){
+            for (var i =0;i<filters.avoidHours.length;i++){
+                var temp = filters.avoidHours[i];
+                temp.startTime = formatHours(new Date(temp.startTime));
+                temp.endTime = formatHours(new Date(temp.endTime));
+                filters.avoidHours[i] = temp;
+            }
+        }
+    }
+    return filters;
+}
+
+var formatHours = function(dateObject){
+    var hour = parseInt(dateObject.getHours());
+    var minutes = parseInt(dateObject.getMinutes());
+    if (minutes != 0)
+        hour+=0.5
+    return hour
+}
+
+test1(json1);

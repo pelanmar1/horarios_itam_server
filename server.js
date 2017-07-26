@@ -46,6 +46,8 @@ app.get('/loadCourses',function (req,res) {
 });
 
 
+
+
 // HTTP POSTs
 app.post('/generateSchedule',function(req,res){
     postCourses = req.body.courses;
@@ -57,9 +59,11 @@ app.post('/generateSchedule',function(req,res){
             postCourses = cleanCourses(postCourses,courses,true);
             if(postCourses!=null && postCourses.length>0){
                 namesToCourses(postCourses,function(finalCourses){
-                    if(postFilters!=null && postFilters.hasOwnProperty('mustHaveGroups') && postFilters.mustHaveGroups.length > 0){
+                    if(postFilters!=null){
                         finalFilters = postFilters;
-                        finalFilters.mustHaveGroups =cleanCourses(postFilters.mustHaveGroups,courses,false);
+                        if(postFilters.hasOwnProperty('mustHaveGroups') && postFilters.mustHaveGroups.length > 0){
+                            finalFilters.mustHaveGroups =cleanCourses(postFilters.mustHaveGroups,courses,false);
+                        }
                         if (finalFilters!=null)
                             combos = schedule_generator.filterClasses(finalCourses,finalFilters);
                         else
@@ -137,8 +141,8 @@ var formatAvoidHours = function(filters){
         if (filters.hasOwnProperty('avoidHours') && filters.avoidHours!=null && filters.avoidHours.length>0){
             for (var i =0;i<filters.avoidHours.length;i++){
                 var temp = filters.avoidHours[i];
-                temp.startTime = formatHours(temp.startTime);
-                temp.endTime = formatHours(temp.endTime);
+                temp.startTime = formatHours(new Date(temp.startTime));
+                temp.endTime = formatHours(new Date(temp.endTime));
                 filters.avoidHours[i] = temp;
             }
         }
