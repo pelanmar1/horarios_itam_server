@@ -66,13 +66,17 @@ app.post('/generateSchedule',function(req,res){
                         }
                         if (finalFilters!=null){
                             combos = schedule_generator.filterClasses(finalCourses,finalFilters);
-                            console.log(combos.length);
+                            console.log('Filtered data');
                         }
-                        else
+                        else{
                             combos = schedule_generator.getValidClassCombinations(finalCourses);
+                            console.log('Unfiltered data');
+                        }
                     }
                     else{
                         combos = schedule_generator.getValidClassCombinations(finalCourses);
+                        console.log('Unfiltered data');
+
                     }
                     res.send(combos);
                         
