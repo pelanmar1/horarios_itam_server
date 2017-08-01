@@ -176,7 +176,9 @@ var isTimeOutsideInterval = function (sTime1, eTime1, sTime2, eTime2) {
     return ((sTime1 > sTime2 && sTime1 >= eTime2) || (eTime1 <= sTime2 && eTime1 < eTime2));
 };
 
+// filter sets by json object conditions
 var checkValidSet = function(set,filter) {
+    if(filter == null) return true;
 
     var go = true;
     var i = 0;
@@ -186,10 +188,9 @@ var checkValidSet = function(set,filter) {
     var misProfMinAvg,sum=0,avg=0,numRated=0;
 
     if(filter!= null && filter.hasOwnProperty('misProfMinAvgScore') && filter.misProfMinAvgScore!= null){
-        misProfMinAvg = parseInt(filter.misProfMinAvgScore);
+        misProfMinAvg = parseFloat(filter.misProfMinAvgScore);
     }
     while(go && i<set.length){
-        sum=0;
         // Check class
         go = go && checkAllFilters(set[i],filter);
         sum += sumScore(set[i]);
@@ -210,6 +211,7 @@ var checkValidSet = function(set,filter) {
         }
         i++;
     }
+    
     if(misProfMinAvg != null && sum>0){
         avg = sum/numRated;
         go = go && avg>=misProfMinAvg;
@@ -222,7 +224,10 @@ var sumScore= function(course){
     if(course.hasOwnProperty('teacher') && course.teacher != null 
         && course.teacher.hasOwnProperty('misProfesoresData') && course.teacher.misProfesoresData!= null 
         && course.teacher.misProfesoresData.hasOwnProperty('score') && course.teacher.misProfesoresData.score!= null){
-        score = parseInt(course.teacher.misProfesoresData.score);
+        score = parseFloat(course.teacher.misProfesoresData.score);
+        if(isNaN(score))
+            score = 0;
+        
     }
     return score;
 
