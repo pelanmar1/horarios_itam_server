@@ -59,6 +59,7 @@ app.post('/generateSchedule',function(req,res){
                     if(postFilters.hasOwnProperty('mustHaveGroups') && postFilters.mustHaveGroups.length > 0){
                             postFilters.mustHaveGroups =cleanCourses(postFilters.mustHaveGroups,courses,false);
                     }
+                    console.log(postFilters.avoidHours);
                     var filtered = combos.filter(function(set){
                         return scheduleGenerator.checkValidSet(set,postFilters);
                     });
