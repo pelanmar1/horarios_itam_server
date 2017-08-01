@@ -224,9 +224,63 @@ var filter = {
 
 
 
+
+
+
+
+/// Front end
+
+var getAverage=function(set){
+    var sum=0,numRated=0;
+    var curr,laboratory,alternative,currSum=0,avg=0;
+    for(var i =0;i<set.length;i++){
+        curr = set[i];
+        currSum = sumScore(curr)
+        sum += currSum;
+        if(currSum>0)
+            numRated++;
+        if(set[i].hasOwnProperty('laboratory') && set[i].laboratory != null){
+            laboratory = set[i].laboratory;
+            currSum = sumScore(laboratory)
+            sum += currSum;
+            if(currSum>0)
+                numRated++;
+        }
+        if(set[i].hasOwnProperty('alternative') && set[i].alternative != null){
+            alternative = set[i].alternative;
+            currSum = sumScore(alternative);
+            sum += currSum;
+            if(currSum>0)
+                numRated++;
+        }
+    }
+    if(numRated>0)
+        avg = sum/numRated;
+    else
+        avg = -1;
+    return avg;
+}
+
+var sumScore= function(course){
+    var score=0;
+    if(course.hasOwnProperty('teacher') && course.teacher != null 
+        && course.teacher.hasOwnProperty('misProfesoresData') && course.teacher.misProfesoresData!= null 
+        && course.teacher.misProfesoresData.hasOwnProperty('score') && course.teacher.misProfesoresData.score!= null){
+        score = parseFloat(course.teacher.misProfesoresData.score);
+        if(isNaN(score))
+            score = 0;
+        
+    }
+    return score;
+
+}
+
+
+/*
+
 var filtered = data.filter(function(set){
     return checkValidSet(set,filter);
 });
 console.log('Length data: '+ data.length +'\n'+'Length filtered: '+filtered.length);
-//console.log(filtered);
-
+console.log(filtered);
+*/

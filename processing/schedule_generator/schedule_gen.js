@@ -100,8 +100,6 @@ var checkIfValidClasses = function (classes) {
         }
         i++;
     }
-    //console.log(matrix);
-    //console.log('\n');
     return !overlap;
 };
 
@@ -185,7 +183,7 @@ var checkValidSet = function(set,filter) {
 
     var laboratory,alternative;
 
-    var misProfMinAvg,sum=0,avg=0,numRated=0;
+    var misProfMinAvg,sum=0,avg=0,numRated=0,currSum=0;
 
     if(filter!= null && filter.hasOwnProperty('misProfMinAvgScore') && filter.misProfMinAvgScore!= null){
         misProfMinAvg = parseFloat(filter.misProfMinAvgScore);
@@ -193,31 +191,42 @@ var checkValidSet = function(set,filter) {
     while(go && i<set.length){
         // Check class
         go = go && checkAllFilters(set[i],filter);
-        sum += sumScore(set[i]);
-        numRated++;
+        currSum = sumScore(set[i])
+        sum += currSum;
+        if(currSum>0)
+            numRated++;
         // Check laboratory
         if(set[i].hasOwnProperty('laboratory') && set[i].laboratory != null){
             laboratory = set[i].laboratory;
             go = go && checkAllFilters(laboratory,filter);
-            sum += sumScore(laboratory);
-            numRated++;
+            currSum = sumScore(laboratory);
+            sum += currSum
+            if(currSum>0)
+                numRated++;
         }
         // Check alternative
         if(set[i].hasOwnProperty('alternative') && set[i].alternative != null){
             alternative = set[i].alternative;
             go = go && checkAllFilters(alternative,filter);
-            sum += sumScore(alternative);
-            numRated++;
+            currSum = sumScore(alternative)
+            sum += currSum;
+            if(currSum>0)
+                numRated++;
         }
         i++;
     }
     
     if(misProfMinAvg != null && sum>0){
-        avg = sum/numRated;
-        go = go && avg>=misProfMinAvg;
+        if(numRated>0){
+            avg = sum/numRated;
+            go = go && avg>=misProfMinAvg;
+            console.log('Promedio de set: '+avg+'\n'+'Promedio minimo MP: '+misProfMinAvg+'\n'+'Go: '+go);
+
+        }
     }
     return go;
 }
+
 
 var sumScore= function(course){
     var score=0;
