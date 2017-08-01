@@ -232,11 +232,11 @@ var sumScore= function(course){
 // CHECK ALL
 
 var checkAllFilters = function(courseObj,filterObj){
-    var goodDays,goodTimes;
+    var goodDays,goodTimes,mustGroups;
     goodDays = checkAvoidDay(courseObj,filterObj);
     goodTimes = checkAvoidHours(courseObj,filterObj);
-
-    return goodDays && goodTimes;
+    mustGroups = checkMustHaveGroups(courseObj,filterObj);
+    return goodDays && goodTimes && mustGroups;
 
 
 }
@@ -293,7 +293,7 @@ var checkAvoidDay = function(course,filter){
             || filter.avoidDay instanceof Array == false 
                 || filter.avoidDay.length == 0) return true;
 
-    filtDays = filter.avoidDay;
+    var filtDays = filter.avoidDay;
     var i = 0;
     var go = true;
     var courseDays = formatDays(course.days);
@@ -307,6 +307,35 @@ var checkAvoidDay = function(course,filter){
     return go;
 }
 
+// MUST HAVE GROUPS
+
+var checkMustHaveGroups = function(course,filter){
+    if (course== null || filter == null
+        || filter.hasOwnProperty('mustHaveGroups')==false 
+            || filter.mustHaveGroups instanceof Array == false 
+                || filter.mustHaveGroups.length == 0) return true;
+
+    var i = 0;
+    var go = true;
+    var groups = filter.mustHaveGroups;
+    var dep,cNum,curr;
+    var go = true;
+
+    var isWantedClass=false;
+    while(go && i<groups.length){
+        curr = groups[i].split('-');
+        if(curr.length<3) return true;
+        dep = curr[0];
+        cNum = curr[1];
+        groupNum = curr[2];
+        isWantedClass = (dep == course.department && cNum == course.key);
+        if(isWantedClass){
+            go = groupNum == course.groupNum
+        }
+        i++;
+    }
+    return go;
+}
 
 module.exports.getValidClassCombinations = getValidClassCombinations;
 module.exports.checkValidSet = checkValidSet;
