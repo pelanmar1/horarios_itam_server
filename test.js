@@ -1,6 +1,8 @@
 var async = require('async');
 var screenScraping = require('./processing/screen_scraping/screen_scraping.js');
 var schedule_generator = require('./processing/schedule_generator/schedule_gen.js');
+var fs = require('fs');
+
 
 var namesToCourses = function(inputCourses,next){
     var courses = [];
@@ -86,7 +88,7 @@ var x = {
 };
 
 
-var json1 = {"carreras":[{"name":"Ingeniería Industrial","planes":[{"name":"ind_F","index":21}],"enabled":true,"$$hashKey":"object:61"}],"courses":["COM-14105","IIO-15150","IIO-13180","EST-11101"],"filters":{"avoidDay":[],"avoidHours":[{"days":[1,3],"startTime":"2017-07-25T14:00:56.041Z","endTime":"2017-07-25T15:00:56.041Z","$$hashKey":"object:1366"}],"mustHaveGroups":[]}}
+var json1 = {"carreras":[{"name":"Ingeniería Industrial","planes":[{"name":"ind_F","index":21}],"enabled":true,"$$hashKey":"object:61"}],"courses":["COM-14105","IIO-15150","IIO-13180","EST-11101"]}
 
 var test1 = function(json){
     postCourses = json.courses;
@@ -113,6 +115,9 @@ var test1 = function(json){
                         combos = schedule_generator.getValidClassCombinations(finalCourses);
                     }
                     console.log('COMBOS: '+combos.length);
+                    writeData('data.txt',JSON.stringify(combos));
+
+                    
                         
                 });
             }
@@ -150,3 +155,15 @@ var formatHours = function(dateObject){
 }
 
 test1(json1);
+
+
+function writeData(savPath, data) {
+        fs.writeFile (savPath, data, function(err) {
+        if (err) throw err;
+        console.log('complete');
+        }
+    );
+}
+
+
+

@@ -45,10 +45,6 @@ app.get('/loadCourses',function (req,res) {
     });
 });
 
-
-
-
-// HTTP POSTs
 app.post('/generateSchedule',function(req,res){
     postCourses = req.body.courses;
     postFilters = req.body.filters;
@@ -59,26 +55,14 @@ app.post('/generateSchedule',function(req,res){
             postCourses = cleanCourses(postCourses,courses,true);
             if(postCourses!=null && postCourses.length>0){
                 namesToCourses(postCourses,function(finalCourses){
-                    if(postFilters!=null){
-                        finalFilters = postFilters;
-                        if(postFilters.hasOwnProperty('mustHaveGroups') && postFilters.mustHaveGroups.length > 0){
-                            finalFilters.mustHaveGroups =cleanCourses(postFilters.mustHaveGroups,courses,false);
-                        }
-                        if (finalFilters!=null){
-                            combos = schedule_generator.filterClasses(finalCourses,finalFilters);
-                            console.log('Filtered data');
-                        }
-                        else{
-                            combos = schedule_generator.getValidClassCombinations(finalCourses);
-                            console.log('Unfiltered data');
-                        }
+                    combos = scheduleGenerator.getValidClassCombinations(finalCourses);
+                    if(postFilters.hasOwnProperty('mustHaveGroups') && postFilters.mustHaveGroups.length > 0){
+                            postFilters.mustHaveGroups =cleanCourses(postFilters.mustHaveGroups,courses,false);
                     }
-                    else{
-                        combos = schedule_generator.getValidClassCombinations(finalCourses);
-                        console.log('Unfiltered data');
-
-                    }
-                    res.send(combos);
+                    var filtered = combos.filter(function(set){
+                        return scheduleGenerator.checkValidSet(set,postFilters);
+                    });
+                    res.send(filtered);
                         
                 });
             }
@@ -91,6 +75,7 @@ app.post('/generateSchedule',function(req,res){
         });
     }
 });
+
 
 app.listen(port, function () {
     console.log('I\'m listening');
@@ -168,5 +153,5 @@ var formatHours = function(dateObject){
 
 
 var screenScraping = require('./processing/screen_scraping/screen_scraping.js');
-var schedule_generator = require('./processing/schedule_generator/schedule_gen.js');
+var scheduleGenerator = require('./processing/schedule_generator/schedule_gen.js');
 

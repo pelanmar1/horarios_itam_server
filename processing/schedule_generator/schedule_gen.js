@@ -176,160 +176,137 @@ var isTimeOutsideInterval = function (sTime1, eTime1, sTime2, eTime2) {
     return ((sTime1 > sTime2 && sTime1 >= eTime2) || (eTime1 <= sTime2 && eTime1 < eTime2));
 };
 
-var getMisProfesoresAvgScore = function (classes) {
-    var k = 0;
-    if(classes!=null && classes.length>0){
-        var sum = 0;
-        classes.forEach(function (item, i) {
-            if (item.teacher.misProfesoresData != null) {
-                sum += parseFloat(item.teacher.misProfesoresData.score);
-                k++;
-            }
-            if(item.alternative!=null&&item.alternative.teacher.misProfesoresData!=null&&item.alternative.teacher.name!=item.teacher.name){
-                sum += parseFloat(item.alternative.teacher.misProfesoresData.score);
-                k++;
-            }
-            if(item.laboratory!=null&&item.laboratory.teacher.misProfesoresData!=null&&item.laboratory.teacher.name!=item.teacher.name){
-                sum += parseFloat(item.laboratory.teacher.misProfesoresData.score);
-                k++;
-            }
-        });
-    }
+var checkValidSet = function(set,filter) {
 
-    return (k==0)?-1:(sum/k);
+    var go = true;
+    var i = 0;
+
+    var laboratory,alternative;
+
+    var misProfMinAvg,sum=0,avg=0,numRated=0;
+
+    if(filter!= null && filter.hasOwnProperty('misProfMinAvgScore') && filter.misProfMinAvgScore!= null){
+        misProfMinAvg = parseInt(filter.misProfMinAvgScore);
+    }
+    while(go && i<set.length){
+        sum=0;
+        // Check class
+        go = go && checkAllFilters(set[i],filter);
+        sum += sumScore(set[i]);
+        numRated++;
+        // Check laboratory
+        if(set[i].hasOwnProperty('laboratory') && set[i].laboratory != null){
+            laboratory = set[i].laboratory;
+            go = go && checkAllFilters(laboratory,filter);
+            sum += sumScore(laboratory);
+            numRated++;
+        }
+        // Check alternative
+        if(set[i].hasOwnProperty('alternative') && set[i].alternative != null){
+            alternative = set[i].alternative;
+            go = go && checkAllFilters(alternative,filter);
+            sum += sumScore(alternative);
+            numRated++;
+        }
+        i++;
+    }
+    if(misProfMinAvg != null && sum>0){
+        avg = sum/numRated;
+        go = go && avg>=misProfMinAvg;
+    }
+    return go;
 }
 
-//Given a set of classes with all available groups, return all filtered sets.
-
-var filterClasses = function (classes, filters) {
-    var final = [];
-    if (filters!= null && classes!= null){
-        var temp = getValidClassCombinations(classes);
-        var k = 0;
-        var go = true;
-        //Filters
-        var avoidDay = null;
-        var hoursToAvoid = null;
-        var mustGroups = null;
-        var misProfMinAvgScore =null;        
-        if (filters.hasOwnProperty('avoidDay') && filters.avoidDay.length > 0)
-            avoidDay = filters.avoidDay;
-        if (filters.hasOwnProperty('avoidHours') && filters.avoidHours.length > 0)
-            hoursToAvoid = filters.avoidHours;
-        if (filters.hasOwnProperty('mustHaveGroups') && filters.mustHaveGroups!=null && filters.mustHaveGroups.length > 0)
-            mustGroups = filters.mustHaveGroups
-        if(filters.hasOwnProperty('misProfMinAvgScore') && filters.misProfMinAvgScore>0)
-            misProfMinAvgScore= filters.misProfMinAvgScore;
-        for (var j = 0; j < temp.length; j++) {
-            k = 0;
-            var time,days;
-            var altTime, altDays;
-            var labTime, labDays;
-            while (go && k < temp[j].length) {
-                time = formatTime(temp[j][k].schedule);
-                days = formatDays(temp[j][k].days);
-                if (temp[j][k].hasOwnProperty('alternative') && temp[j][k].alternative!=null){
-                    altDays = formatDays(temp[j][k].alternative.days);
-                    altTime = formatTime(temp[j][k].alternative.schedule);
-                }
-                if (temp[j][k].hasOwnProperty('laboratory') && temp[j][k].laboratory!=null){
-                    labDays = formatDays(temp[j][k].laboratory.days);
-                    labTime = formatTime(temp[j][k].laboratory.schedule);
-                }
-                if (avoidDay != null) {
-                    var a =0;
-                    while(go&&a<avoidDay.length) {
-                        go = go && (days.indexOf(avoidDay[a]) == -1) && avoidDay[a]!=7;
-                        if(go && labDays!= null)
-                            go = go && (labDays.indexOf(avoidDay[a]) == -1) && avoidDay[a]!=7;
-                        if(go && altDays!= null)
-                            go = go && (altDays.indexOf(avoidDay[a]) == -1) && avoidDay[a]!=7;
-                        a++;
-                    }
-                }
-                if (hoursToAvoid != null) {
-                    var h = 0;
-                    while (go && h < hoursToAvoid.length) {
-                        if (hoursToAvoid[h].days != null && !(hoursToAvoid[h].days.length == 1 && hoursToAvoid[h].days[0] == 7)) {
-                            var d = 0;
-                            while (go && d < hoursToAvoid[h].days.length) {
-            
-                                if (days.indexOf(hoursToAvoid[h].days[d]) >= 0){
-                                    go = go && (isTimeOutsideInterval(hoursToAvoid[h].startTime, hoursToAvoid[h].endTime, time[0], time[1]));
-                                }
-                                if(go && labDays!=null){
-                                    if (labDays.indexOf(hoursToAvoid[h].days[d]) >= 0)
-                                        go = go && (isTimeOutsideInterval(hoursToAvoid[h].startTime, hoursToAvoid[h].endTime, labTime[0], labTime[1]));
-                                }
-                                if(go && altDays!=null){
-                                    if (altDays.indexOf(hoursToAvoid[h].days[d]) >= 0)
-                                        go = go && (isTimeOutsideInterval(hoursToAvoid[h].startTime, hoursToAvoid[h].endTime, altTime[0], altTime[1]));
-                                }
-                                d++;
-                            }
-                        }
-                        else if (hoursToAvoid[h].days!=null){
-                            go = go && (isTimeOutsideInterval(hoursToAvoid[h].startTime, hoursToAvoid[h].endTime, time[0], time[1]));
-                            if(go && altDays!=null){
-                                    go = go && (isTimeOutsideInterval(hoursToAvoid[h].startTime, hoursToAvoid[h].endTime, altTime[0], altTime[1]));
-                            }
-                            if(go && labDays!=null){
-                                    go = go && (isTimeOutsideInterval(hoursToAvoid[h].startTime, hoursToAvoid[h].endTime, labTime[0], labTime[1]));
-                            }
-                        }
-                        h++;
-                    }
-                }
-                if (mustGroups != null) {
-                    var g = 0;
-                    while (go && g < mustGroups.length) {
-                        var tempCode = (mustGroups[g] + '').split('-');
-                        if (temp[j][k].department == tempCode[0] && temp[j][k].key == tempCode[1]) {
-                            go = go && temp[j][k].groupNum == tempCode[2];
-                        }
-                        g++;
-                    }
-                }
-                k++;
-            }
-            if (go) {
-                if(misProfMinAvgScore !=null){
-                    var score = getMisProfesoresAvgScore(temp[j]);
-                    go= go && (score ==-1 ||score>=misProfMinAvgScore);
-                }
-                if(go){
-                    final.push(temp[j]);
-                }
-            }
-            else
-                go = true;
-        }
+var sumScore= function(course){
+    var score=0;
+    if(course.hasOwnProperty('teacher') && course.teacher != null 
+        && course.teacher.hasOwnProperty('misProfesoresData') && course.teacher.misProfesoresData!= null 
+        && course.teacher.misProfesoresData.hasOwnProperty('score') && course.teacher.misProfesoresData.score!= null){
+        score = parseInt(course.teacher.misProfesoresData.score);
     }
-    return final;
+    return score;
 
-};
+}
 
 
-var x = {
-    avoidDay: [5], // EVITA CLASES EL DÍA VIERNES
-    avoidHours: [
-        {
-            days: [7],//[TODOS LOS DÍAS]
-            startTime: 7,
-            endTime: 8
-        },
-        {
-            days: [1,3], //[LUNES,MIÉRCOLES]
-            startTime: 10, // 4 PM
-            endTime: 11.5    // 6 PM
+// CHECK ALL
+
+var checkAllFilters = function(courseObj,filterObj){
+    var goodDays,goodTimes;
+    goodDays = checkAvoidDay(courseObj,filterObj);
+    goodTimes = checkAvoidHours(courseObj,filterObj);
+
+    return goodDays && goodTimes;
+
+
+}
+
+// AVOID HOURS
+
+// Checks if a single course is good against single avoid hours filter
+var courseInValidHours = function(course,filtDays,filtHours){
+    if(course==null || filtDays == null || filtHours == null) return true;
+
+    var i = 0;
+    var go = true;
+    
+    var courseDays = formatDays(course.days);
+    var courseTime = formatTime(course.schedule);
+    var isUnwantedDay=false;
+    var isUnwantedTime=false;
+    while(go && i<filtDays.length){
+        isUnwantedDay = courseDays.indexOf(filtDays[i])>-1 || filtDays[i] == 7;
+        if(isUnwantedDay){
+            isUnwantedTime = !isTimeOutsideInterval(courseTime[0],courseTime[1],filtHours[0],filtHours[1]);
+            go = go && !isUnwantedTime;
         }
-    ],
-     // DEPARTAMENTO-CLAVE-GRUPO
-    misProfMinAvgScore: 0
-};
+        i++;
+    }
+    return go;
+}
+
+// Checks if a single course is good against ALL avoid hours filters
+var checkAvoidHours= function(course,filter){
+    if (course== null || filter == null
+        || filter.hasOwnProperty('avoidHours')== false 
+        || filter.avoidHours instanceof Array == false 
+            || filter.avoidHours.length == 0) return true;
+
+    var go = true;
+    var i = 0;
+    var currElem,currDays,currHours;
+    while(go && i<filter.avoidHours.length){
+        currElem = filter.avoidHours[i];
+        go = go && courseInValidHours(course,currElem.days,[currElem.startTime,currElem.endTime])
+        i++;
+    }
+
+    return go;
+}
+
+// AVOID DAY
+
+// Checks if a single course is good against single avoid hours filter
+var checkAvoidDay = function(course,filter){
+    if (course== null || filter == null
+        || filter.hasOwnProperty('avoidDay')==false 
+            || filter.avoidDay instanceof Array == false 
+                || filter.avoidDay.length == 0) return true;
+
+    filtDays = filter.avoidDay;
+    var i = 0;
+    var go = true;
+    var courseDays = formatDays(course.days);
+
+    var isUnwantedDay=false;
+    while(go && i<filtDays.length){
+        isUnwantedDay = courseDays.indexOf(filtDays[i])>-1 || filtDays[i] == 7;
+        go = go && !isUnwantedDay;
+        i++;
+    }
+    return go;
+}
 
 
-
-
-module.exports.filterClasses = filterClasses;
 module.exports.getValidClassCombinations = getValidClassCombinations;
+module.exports.checkValidSet = checkValidSet;
