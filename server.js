@@ -15,8 +15,11 @@ var cors = require('cors');
 
 // MIDDLEWARE
 app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept,contenttype");
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); 
+    res.setHeader('Access-Control-Allow-Credentials', true); 
+
     next();
 });
 app.use(express.static(path.join(__dirname, 'public')));
@@ -67,12 +70,14 @@ app.post('/generateSchedule',function(req,res){
                 });
             }
             else{
-                res.send(403, {error: "Los cursos ingresados no se encuentran disponibles este periodo."});
+                res.status(403).send({error: "Los cursos ingresados no se encuentran disponibles este periodo."});
             }
             
             
             
         });
+    }else{
+        res.status(403).send({error: "No se ha enviado ningun curso para generar el horario."})
     }
 });
 
