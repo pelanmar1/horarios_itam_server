@@ -32,7 +32,7 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 
 // HTTP GETs
 app.get('/',function (req,res) {
-    res.send('Primavera 2020');
+    res.send('Verano 2020');
 });
 app.get('/loadSchedules',function (req,res) {
     var courseName = req.query.cName;
