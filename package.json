@@ -12,7 +12,7 @@
   "author": "Pedro Lanzagorta",
   "license": "ISC",
   "dependencies": {
-    "async": "^2.1.4",
+    "async": "^3.2.2",
     "body-parser": "^1.17.2",
     "cheerio": "^0.22.0",
     "cors": "^2.8.3",
